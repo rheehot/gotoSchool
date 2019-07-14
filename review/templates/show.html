@@ -1,0 +1,12 @@
+show
+<br><br>
+대학 : {{ review.univ }}<br>
+강의명 : {{ review.coursename }}<br>
+교수 : {{ review.prof }}<br>
+수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
+강의평 : {{ review.content }}<br>
+별점 : {{ review.star }}<br><br>
+
+<a href="{% url 'list' %}">list</a>
+<a href="{% url 'update' review.id %}">update</a>
+<a href="{% url 'delete' review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">delete</a>
