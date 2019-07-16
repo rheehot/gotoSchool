@@ -1,0 +1,10 @@
+<h1>자세한 본문 내용</h1>
+<br>
+<h1>제목: {{s_review.school}} </h1>
+<p>학교평: {{s_review.content}}</p>
+<p>날짜: {{s_review.date}}</p>
+<p>{{value|default:"nothing"}}</p>
+
+<a href="{% url 'reviewList' %}">뒤로 가기</a>
+<a href="{% url 'schupdate' s_review.id %}">수정하기</a>
+<a href="{% url 'schdelete' s_review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>

@@ -31,7 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'contact.apps.ContactConfig',
+    'home.apps.HomeConfig',
+    'membership.apps.MembershipConfig',
+    'recommend.apps.RecommendConfig',
     'review.apps.ReviewConfig',
+    'schoolreview.apps.SchoolreviewConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

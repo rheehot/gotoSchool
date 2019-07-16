@@ -1,0 +1,7 @@
+<a href="{% url 'schcreate' %}">새 글 쓰기</a>
+
+{% for s_review in s_reviews.all %}
+    <h3><a href="{% url 'schshow' s_review.id %}">제목 : {{ s_review.school }}</a></h3> 
+    <h3>내용 : {{ s_review.summary }}</h3>
+    <br/>
+{% endfor %}
