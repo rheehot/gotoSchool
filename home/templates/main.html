@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="/static/css/fullpage.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+<script type="text/javascript" src="/static/js/fullpage.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+  <nav id="menu">
+    <div class="nav-wrapper">
+      <a href="/home/main" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/review/list">Review</a></li>
+        <li><a href="/schoolreview/reviewList">Review2</a></li>
+        <li><a href="collapsible.html">menu3</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</head>
+
+<body>
+<div id="nav"></div>
+
+<div id="fullpage">
+	<div class="section"><h1>test page1</h1></div>
+	<div class="section"><h1>test page2</h1></div>
+	<div class="section"><h1>test page3</h1></div>
+	<div class="section"><h1>test page4</h1></div>
+</div>
+
+
+
+<script type="text/javascript" src="../static/js/fullpage.js"></script>
+<script type="text/javascript">
+	var myFullpage = new fullpage('#fullpage', {
+		sectionsColor: ['#aed581', '#7cb342', '#558b2f', '#1b5e20'],
+        autoScrolling:true,
+	    scrollHorizontally: true,
+
+        menu: '#menu',
+  
+        navigation: true,
+        navigationPosition: 'left',
+
+        menu: '#menu',
+        css3:true
+	});
+</script>
+</body>
+</body>
+
+</html>

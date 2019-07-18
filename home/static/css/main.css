@@ -1,0 +1,15 @@
+.section {
+    text-align:center;
+    font-size: 3em;
+}
+
+#menu {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0,0);
+    top: 0;
+    margin: 0;
+    z-index: 9;
+}
