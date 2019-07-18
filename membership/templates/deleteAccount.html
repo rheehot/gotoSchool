@@ -1,0 +1,6 @@
+<h2>회원탈퇴</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="탈퇴완료">
+    </form>
