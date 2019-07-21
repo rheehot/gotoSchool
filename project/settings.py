@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'membership.apps.MembershipConfig',
     'contact.apps.ContactConfig',
     'home.apps.HomeConfig',
-    'membership.apps.MembershipConfig',
     'recommend.apps.RecommendConfig',
     'review.apps.ReviewConfig',
     'schoolreview.apps.SchoolreviewConfig',
@@ -125,3 +125,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+AUTH_USER_MODEL = 'membership.Member'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
