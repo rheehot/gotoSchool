@@ -1,0 +1,13 @@
+<h1>TOP 5</h1>
+
+{% for review in recommend %}
+    대학 : {{ review.univ }}<br>
+    강의명 :  <a href = "{% url 'show' review.id %}"> {{ review.coursename }}</a><br>
+    교수 : {{ review.prof }}<br>
+    수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
+    강의평 : {{ review.content }}<br> 
+    과제 : {{ review.assignment }}<br>
+    시험 : {{ review.test }}<br>
+    출결 : {{ review.attendence }}<br>
+    별점 : {{ review.star }}<br><br>
+{% endfor %}

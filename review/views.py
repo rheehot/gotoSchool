@@ -3,8 +3,18 @@ from .models import Review
 from .forms import ReviewForm
 
 def list(request):
-    reviews = Review.objects
-    return render(request, 'list.html', {'reviews':reviews})
+    reviews = Review.objects.all()
+    search1 = request.GET.get('select_univ', None)
+    search2 = request.GET.get('search_coursename', None)
+    if search1 :
+        reviews = reviews.filter(univ__icontains=search1)
+        if search2 :
+            reviews = reviews.filter(coursename__icontains=search2)
+            return render(request, 'list.html', {'reviews' : reviews})
+        else :
+            return render(request, 'list.html', {'reviews': reviews})
+    else :
+        return render(request, 'list.html', {'reviews': reviews})
 
 def show(request, review_id):
     review_show = get_object_or_404(Review, pk = review_id)

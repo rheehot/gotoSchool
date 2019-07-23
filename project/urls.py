@@ -23,4 +23,5 @@ urlpatterns = [
     path('schoolreview/', include('schoolreview.urls')),
     path('home/', include('home.urls')),
     path('', home.views.main, name="main"),
+    path('recommend/', include('recommend.urls')),
 ]
