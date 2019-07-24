@@ -5,6 +5,9 @@ show
 교수 : {{ review.prof }}<br>
 수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
 강의평 : {{ review.content }}<br>
+과제 : {{ review.assignment }}<br>
+시험 : {{ review.test }}<br>
+출결 : {{ review.attendence }}<br>
 별점 : {{ review.star }}<br><br>
 
 <a href="{% url 'list' %}">list</a>

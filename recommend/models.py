@@ -1,3 +1,2 @@
 from django.db import models
-
-# Create your models here.
+from review.models import Review  # or a particular model

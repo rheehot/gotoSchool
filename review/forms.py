@@ -13,6 +13,11 @@ class ReviewForm(forms.ModelForm) :
             'courseyear' : '수강년도',
             'coursesemester' : '수강학기',
             'content' : '강의평',
+            'assignment' : '과제',
+            'test' : '시험',
+            'attendence' : '출결',
             'star' : '별점',
         }
-        widgets = {'star': forms.RadioSelect}
+        widgets = {
+            'star': forms.RadioSelect,
+            }

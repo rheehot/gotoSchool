@@ -1,11 +1,33 @@
 list
 <br><br>
+{% load my_filters %}
+
+<form action="" method="GET">
+{% csrf_token %}
+  대학 :
+  <select name="select_univ">
+    <option value = "숙명여자대학교" >숙명여자대학교</option>
+    <option value = "성신여자대학교" >성신여자대학교</option>
+    <option value = "서울대학교" >서울대학교</option>
+    <option value = "서울산업기술대학교" >서울산업기술대학교</option>
+    <option value = "건국대학교" >건국대학교</option>
+  </select>
+  <br>
+  강의명 :
+  <input type="text" name="search_coursename">
+  <input type="submit" value="검색">
+</form>
+
+<br><br>
 {% for review in reviews.all %}
     대학 : {{ review.univ }}<br>
     강의명 :  <a href = "{% url 'show' review.id %}"> {{ review.coursename }}</a><br>
     교수 : {{ review.prof }}<br>
     수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
-    강의평 : {{ review.content }}<br>
+    강의평 : {{ review.content }}<br> 
+    과제 : {{ review.assignment }}<br>
+    시험 : {{ review.test }}<br>
+    출결 : {{ review.attendence }}<br>
     별점 : {{ review.star }}<br><br>
 {% endfor %}
 
