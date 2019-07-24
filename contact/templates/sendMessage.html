@@ -1,0 +1,12 @@
+send Message
+<br>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_p }}
+        {{ form.errors }}
+        {{ form.non_field_errors }}
+    </table>
+    <br>
+    <input type="submit" value="send">
+</form>

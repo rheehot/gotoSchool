@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Messages</title>
+</head>
+<body>
+    <h2>내 쪽지함</h2> <br>
+<ul>
+    New Messages: <br>
+    {% for new in rlist %}
+
+        {% if not new.isRead %}
+            <li>보낸 이: {{ new.sender }}, 내용: 
+                <a href="{% url 'viewMessage' new.id %}">{{ new.content }} 
+                <br>
+                </a></li><br>
+        {% endif %}
+    {% endfor %}
+
+    Read Messages: <br>
+    {% for new in rlist %}
+        {% if new.isRead %}
+            <li>보낸 이: {{ new.sender }}, 내용: <a href="{% url 'viewMessage' new.id %}">{{ new.content }} 
+                <br>
+            </a></li><br>
+        {% endif %}
+    {% endfor %}
+
+    Send Messages: <br>
+    {% for send in slist %}
+        <li>받은 사람: {{ send.recipient }}, 내용: <a href="{% url 'viewMessage' send.id %}">{{ send.content }}<br></a>
+            </li><br>
+    {% endfor %}
+</ul>
+</body>
+</html>
