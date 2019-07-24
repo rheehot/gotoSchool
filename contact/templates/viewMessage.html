@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view_single_message</title>
+</head>
+<body>
+From: {{ message.sender.username }}
+<br>
+Message:
+<br>
+{{ message.content }}
+<br>
+{{ message.isRead }}
+</body>
+</html>
