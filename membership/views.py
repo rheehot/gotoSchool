@@ -1,12 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import CreateUserForm, LoginForm, DeleteAccountForm
+from .forms import CreateUserForm, LoginForm, DeleteAccountForm, ChangePasswordForm
 from .models import Member
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.hashers import check_password
 
 # Create your views here.
 def home(request):
@@ -21,6 +22,7 @@ def signup(request):
                 username = form.cleaned_data.get("username")
                 password = form.cleaned_data.get("password")
 
+                newUser = form.save(commit=False)
                 newUser = Member.objects.create_user(username=username, email=None, password=password)
                 
                 newUser.school = form.cleaned_data.get("school")
@@ -28,6 +30,7 @@ def signup(request):
                 newUser.schoolId = form.cleaned_data.get("schoolId")
                 newUser.imgOfIdcard = form.cleaned_data.get("imgOfIdcard")
                 newUser.save()
+                form.save_m2m()
 
                 login(request, newUser)
                 return redirect('home')
@@ -70,9 +73,11 @@ def logout(request):
 def deleteAccount(request):
     if request.method == 'POST':
         form = DeleteAccountForm(request.POST)
+
         try:
             if form.is_valid():
                 user = Member.objects.get(username=form.cleaned_data['username'])
+
                 if user is not None:
                     user.delete()
                     return redirect('home')
@@ -88,3 +93,42 @@ def deleteAccount(request):
     else:
         form = DeleteAccountForm()
         return render(request, 'deleteAccount.html', {'form': form})
+
+def mypage(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
+
+    information = Member.objects.filter(username=request.user)
+
+    # 학교리뷰, 수업리뷰에서 내가 쓴 글 불러오기
+
+    return render(request, 'mypage.html', {'information': information})
+
+#마이페이지에서 비밀번호 변경하기
+def changePassword(request):
+
+    if request.method == 'POST':
+        form = ChangePasswordForm(request.POST)
+        if form.is_valid() :
+            user = request.user
+            currentPassword = request.POST['currentPassword']
+
+            if check_password(currentPassword, user.password):
+                newPassword = request.POST['newPassword']
+                passwordCheck = request.POST['newPasswordCheck']
+
+                if newPassword == passwordCheck:
+                    user.set_password(newPassword)
+                    user.save()
+                    auth.login(request, user)
+                    return redirect('mypage')
+                else:
+                    messages.error(request, '새로운 비밀번호가 서로 일치하지 않습니다. ')
+            
+            else:
+                messages.error(request, '현재 비밀번호가 일치하지 않습니다.')
+
+    else:
+        form = ChangePasswordForm()
+        return render(request, 'changePassword.html', {'form': form})
+    
