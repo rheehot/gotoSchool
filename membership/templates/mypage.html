@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Page :)</title>
+</head>
+<body>
+<h2> My Page :) </h2>
+<br>
+{% for data in information %}
+    ID : {{ data.username }} <br>
+    E-MAIL : {{ data.email }} <br>
+    School : {{ data.school }} <br>
+    Major : {{ data.major }} <br>
+    School-ID : {{ data.schoolId }} <br>
+    관심 학교 : {{ data.interest }} <br>
+    <a href="{% url 'changePassword' %}">비밀번호 변경하기</a>
+{% endfor %}
+
+</body>
+</html>

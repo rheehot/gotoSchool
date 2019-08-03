@@ -1,21 +1,37 @@
 from django import forms
-from .models import Member
+from .models import Member, InterestSchool
 
 
 class CreateUserForm(forms.ModelForm):
+
     passwordCheck = forms.CharField(max_length=100, widget=forms.PasswordInput())
 
-    field_order = ['username', 'password', 'passwordCheck', 'school', 'major', 'schoolId', 'imgOfIdcard']
+    def __init__(self, *args, **kwargs):
+        super(CreateUserForm, self).__init__(*args, **kwargs)
+        self.fields['interest'] = forms.ModelMultipleChoiceField(queryset=InterestSchool.objects.all(), widget=forms.CheckboxSelectMultiple(), required=False)
+        #self.fields['interest'].choices = [(x.id, x) for x in InterestSchool.objects.all()]
+
+    field_order = ['username',
+                 'password',
+                 'passwordCheck', 
+                 'email', 
+                 'school', 
+                 'major', 
+                 'schoolId', 
+                 'imgOfIdcard', 
+                 'interest']
     
     class Meta:
         model = Member
         fields = [
             'username',
             'password',
+            'email',
             'school',
             'major',
             'schoolId',
-            'imgOfIdcard']
+            'imgOfIdcard',
+            'interest']
 
         widgets = {
             'username': forms.TextInput(
@@ -27,15 +43,32 @@ class CreateUserForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control',
                 }),
+            'passwordCheck': forms.PasswordInput(
+                attrs={
+                    'placeholder': '비밀번호를 다시 한 번 입력해주세요.'
+                }),
+            'school': forms.Select(
+                attrs={
+                    'class': 'form-schoolchoice',
+                }
+            ),
+            # 'interest': forms.CheckboxSelectMultiple(
+            #     attrs={
+            #         'class': 'form-interest',
+            #     }, 
+            #     choices=InterestSchool.INTEREST_SCHOOL
+            # )
         }
 
         labels = {
-            'username' : '아이디',
-            'password' : '패스워드',
-            'school' : '학교',
+            'username' : 'ID',
+            'password' : 'PW',
+            'email' : '이메일',
+            'school' : '대학교',
             'major' : '학과(주전공)',
             'schoolId' : '학번',
             'imgOfIdcard' : '학생증 사진',
+            'interest': '관심 학교',
         }
 
     def __init__(self, *args, **kwargs):
@@ -56,3 +89,8 @@ class LoginForm(forms.ModelForm):
 
 class DeleteAccountForm(forms.Form):
     username = forms.CharField()
+
+class ChangePasswordForm(forms.Form):
+    currentPassword = forms.CharField(max_length=100, widget=forms.PasswordInput())
+    newPassword = forms.CharField(max_length=100, widget=forms.PasswordInput())
+    newPasswordCheck = forms.CharField(max_length=100, widget=forms.PasswordInput())
