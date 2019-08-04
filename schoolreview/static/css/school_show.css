@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,700');
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Yeon+Sung&display=swap');
 
 body {
   background-color: #fafafa;
-  font-family: 'Noto Serif', serif;
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 .comment-container {
-  width: 60%;
+  width: 80%;
   margin: 2rem auto;
 }
 
 a {
-  color: #c40030;
+  color: #7AC351;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
@@ -210,13 +210,13 @@ img {
 
 .title {
   font-size: 20px !important;
-  font-weight: 700;
+  font-weight: normal;
   line-height: 1 !important;
   letter-spacing: 0.02em !important;
 }
 
 .caption {
-  font-weight: 400;
+  font-weight: normal;
   font-size: 12px !important;
 }
 
@@ -266,7 +266,7 @@ a:hover {
 }
 
 .comment p {
-  font-size: 14px;
+  font-size: 17px;
   margin-bottom: 7px;
 }
 
@@ -328,9 +328,9 @@ button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1500px) {
   .comment-container {
-    width: 90%;
+    width: 100%;
   }
   .comments {
     padding: 32px;

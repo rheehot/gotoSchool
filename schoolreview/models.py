@@ -9,4 +9,4 @@ class SchoolReview(models.Model):
         return self.school
     
     def summary(self):
-        return self.content[:100]
+        return self.content[:50]

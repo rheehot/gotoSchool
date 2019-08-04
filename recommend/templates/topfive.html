@@ -1,13 +1,42 @@
-<h1>TOP 5</h1>
+<head>
+{% load my_filters %}
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="/static/css/recommend.css" />
+    <link href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+</head>
 
-{% for review in recommend %}
-    대학 : {{ review.univ }}<br>
-    강의명 :  <a href = "{% url 'show' review.id %}"> {{ review.coursename }}</a><br>
-    교수 : {{ review.prof }}<br>
-    수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
-    강의평 : {{ review.content }}<br> 
-    과제 : {{ review.assignment }}<br>
-    시험 : {{ review.test }}<br>
-    출결 : {{ review.attendence }}<br>
-    별점 : {{ review.star }}<br><br>
-{% endfor %}
+<body>
+<script type="text/javascript" src="static/js/recommend.js"></script>
+
+<div window>
+  <div class="main">
+    <h1>추천 강의 Top 5</h1>
+    <br>
+    <br>
+    <br>
+
+    {% for review in recommend %}
+    <details>
+      <summary>{{ review.coursename }}</summary>
+      <div class="detail-body">
+        <p>
+            대학 : {{ review.univ }}<br>
+            강의명 :  <a href = "{% url 'show' review.id %}"> {{ review.coursename }}</a><br>
+            교수 : {{ review.prof }}<br>
+            수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
+            강의평 : {{ review.content }}<br> 
+            과제 : {{ review.assignment }}<br>
+            시험 : {{ review.test }}<br>
+            출결 : {{ review.attendence }}<br>
+            별점 : {{ review.star }}<br><br>
+       </p>
+      </div>
+    </details>
+    {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
