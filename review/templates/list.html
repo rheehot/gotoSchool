@@ -1,7 +1,15 @@
-list
-<br><br>
+<head>
 {% load my_filters %}
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="/static/css/review.css" />
+    <link href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+</head>
+
+<body>
+{% comment %} 
 <form action="" method="GET">
 {% csrf_token %}
   대학 :
@@ -16,19 +24,71 @@ list
   강의명 :
   <input type="text" name="search_coursename">
   <input type="submit" value="검색">
+</form> {% endcomment %}
+
+
+  <div class="row">
+    <div class="container"> 
+    <form class="col s12" action="" method="GET">
+      {% csrf_token %}
+        <div class="input-field col s6">
+          <input type="text" id="coursename" name="search_coursename">
+      
+            <label for="coursename">강의명</label>
+            <button class="btn waves-effect waves-light" type="submit">검색</button>   
+    </div>
+  </div>
 </form>
 
-<br><br>
-{% for review in reviews.all %}
-    대학 : {{ review.univ }}<br>
-    강의명 :  <a href = "{% url 'show' review.id %}"> {{ review.coursename }}</a><br>
-    교수 : {{ review.prof }}<br>
-    수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
-    강의평 : {{ review.content }}<br> 
-    과제 : {{ review.assignment }}<br>
-    시험 : {{ review.test }}<br>
-    출결 : {{ review.attendence }}<br>
-    별점 : {{ review.star }}<br><br>
-{% endfor %}
 
-<a href="{% url 'create' %}">new</a>
+
+<div class="container-fluid" style="margin-left:30px; margin-right:30px;">
+
+    <div class="row">
+      {% for review in reviews.all %}
+      
+        <div class="col-md-3 mb-5">
+          <div class="card transition">
+
+            <h2 class="transition">
+              <br>
+              <br>
+              <a href = "{% url 'show' review.id %}" style="color:#7AC351;"> {{ review.coursename }}</a><br>
+            <br><small>
+             
+            대학 : {{ review.univ }}<br>
+
+            교수 : {{ review.prof }}<br>
+            수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br> 
+            {% comment %} 강의평 : {{ review.content }}<br> 
+            과제 : {{ review.assignment }}<br>
+            시험 : {{ review.test }}<br>
+            출결 : {{ review.attendence }}<br> {% endcomment %}
+            별점 : {{ review.star }}
+            <br>    
+            </small></h2>
+            <div class="cta-container transition"><a href="#" class="cta">자세히 보기</a></div>
+            <div class="card_circle transition"></div>
+          </div>    
+        </div> 
+      <br />
+      <br />
+      {% endfor %} 
+      <br>
+      <br>
+    </div>
+
+
+</div>
+
+
+
+<br>
+<br>
+<br>
+<div class="row">
+  <a href="{% url 'create' %}">new</a>
+</div>
+
+</body>
+</html>

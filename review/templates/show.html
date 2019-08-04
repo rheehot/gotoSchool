@@ -1,14 +1,44 @@
-show
+<head>
+{% load my_filters %}
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="/static/css/show.css" />
+    <link href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 <br><br>
-대학 : {{ review.univ }}<br>
-강의명 : {{ review.coursename }}<br>
-교수 : {{ review.prof }}<br>
-수강학기 : {{ review.courseyear }} - {{ review.coursesemester }}<br>
-강의평 : {{ review.content }}<br>
-과제 : {{ review.assignment }}<br>
-시험 : {{ review.test }}<br>
-출결 : {{ review.attendence }}<br>
-별점 : {{ review.star }}<br><br>
+
+<div class="card transition">
+  
+  <h2 class="transition">
+
+  <a href="{% url 'list' %}"><img src="/static/images/logo2.png" width="330" height="300" class="logo"></a>
+    <br>
+    <br>
+  <small>
+    
+  <p class="r_title">강의명</p> {{ review.coursename}} <br><br>
+  <p class="r_title">대학</p> {{ review.univ }}<br> <br>
+
+    <p class="r_title">교수</p> {{ review.prof }}<br> <br>
+    <p class="r_title">수강학기</p> {{ review.courseyear }} - {{ review.coursesemester }}<br> <br>
+    <p class="r_title">강의평</p> {{ review.content }}<br><br><br>
+    <p class="r_title">과제</p> {{ review.assignment }}<br> <br>
+    <p class="r_title">시험</p> {{ review.test }}<br> <br>
+    <p class="r_title">출결</p> {{ review.attendence }}<br> <br>
+    <p class="r_title">별점</p> {{ review.star }}<br><br>
+  
+  </small>
+  </h2>
+
+  <div class="card_circle transition">
+    
+  </div>
+  
+</div>
+
+
+
 
 <a href="{% url 'list' %}">list</a>
 <a href="{% url 'update' review.id %}">update</a>
