@@ -1,7 +1,66 @@
 <a href="{% url 'schcreate' %}">새 글 쓰기</a>
 
+<!DOCTYPE html>
+<html lang="en" >
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>학교 리뷰</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/school_review.css" />
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Yeon+Sung&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+{% comment %} 
 {% for s_review in s_reviews.all %}
     <h3><a href="{% url 'schshow' s_review.id %}">제목 : {{ s_review.school }}</a></h3> 
     <h3>내용 : {{ s_review.summary }}</h3>
     <br/>
-{% endfor %}
+{% endfor %} {% endcomment %}
+  
+
+<div class="comment-container theme--light">
+  <div class="comments" >
+    {% for s_review in s_reviews.all %}
+    <div>
+      <div  class="card v-card v-sheet theme--light elevation-2">
+        <div  class="header">
+        
+        {% if s_review.school == "숙명여자대학교" %}
+            <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://post-phinf.pstatic.net/MjAxODA4MTJfMzgg/MDAxNTM0MDYxNjMxNzI2.qYWnHXtSXQnkZbeMjmatpcVo0Vjjy87MHdiEs5G6znIg.K7Dctexbidm5_XDc4A-M2LK-sA3CfDc33eyiPG5Zzgcg.PNG/1.png?type=w1200"></div>
+        {% elif s_review.school == "서울대학교" %}
+            <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="http://hangom.com/wp-content/uploads/2015/12/서울대학교_생명과학부.png"></div>
+        {% elif s_review.school == "한국산업기술대학교" %}
+            <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/60/6e/1a/606e1a03-d0e1-cce5-f729-90871da705ff/source/512x512bb.jpg"></div>
+        {% elif s_review.school == "성신여자대학교" %}
+            <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile8.uf.tistory.com%2Fimage%2F244F50405371A29818675E"></div>
+        {% elif s_review.school == "건국대학교" %}
+             <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://post-phinf.pstatic.net/MjAxODA4MTFfMjQ4/MDAxNTMzOTcwMzg3MzE4.IZYrUmmeL2znXrwtN_oaTbpkw_TFRA5L6sEaw6VtX30g.bSW6DuPbkqiOuzGDIGSVcSbpv3VjOgsQMYZSbpb5WFIg.PNG/IdTKy9Ehp6cNGvO_Kn0HyyqMKVcI.jpg?type=w400"></div>
+        {% else %}
+             <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/멋쟁이사자처럼_로고.png/270px-멋쟁이사자처럼_로고.png"></div>
+        {% endif %}    
+            <span class="displayName title"><a href="{% url 'schshow' s_review.id %}">{{ s_review.school }}</a></span> <span  class="displayName caption">{{s_review.date}}</span></div>
+        <!---->
+        <div  class="wrapper comment">
+          <p>{{ s_review.summary }} </p>
+        </div>
+        <br/>
+        <div  class="v-dialog__container" style="display: block;"></div>
+      </div>
+      <!---->
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+  
+  
+
+</body>
+
+</html>
+
