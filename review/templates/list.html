@@ -9,6 +9,11 @@
 </head>
 
 <body>
+
+<div class="row">
+  <a href="{% url 'create' %}">new</a>
+</div>
+
 {% comment %} 
 <form action="" method="GET">
 {% csrf_token %}
@@ -39,7 +44,6 @@
     </div>
   </div>
 </form>
-
 
 
 <div class="container-fluid" style="margin-left:30px; margin-right:30px;">
@@ -81,14 +85,9 @@
 
 </div>
 
+<br>
+<br>
 
-
-<br>
-<br>
-<br>
-<div class="row">
-  <a href="{% url 'create' %}">new</a>
-</div>
 
 </body>
 </html>
