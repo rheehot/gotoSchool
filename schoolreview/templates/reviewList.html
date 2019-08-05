@@ -42,7 +42,7 @@
         {% else %}
              <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/멋쟁이사자처럼_로고.png/270px-멋쟁이사자처럼_로고.png"></div>
         {% endif %}    
-            <span class="displayName title"><a href="{% url 'schshow' s_review.id %}">{{ s_review.school }}</a></span> <span  class="displayName caption">{{s_review.date}}</span></div>
+            <span class="displayName title"><a href="{% url 'schshow' s_review.id %}">{{ s_review.school }}</a></span> <span  class="displayName caption">{{s_review.schoolyear}}-{{s_review.schoolsemester}}</span></div>
         <!---->
         <div  class="wrapper comment">
           <p>{{ s_review.summary }} </p>

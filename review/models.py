@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Review(models.Model):
     UNIVS = [(univ, univ) for univ in ('숙명여자대학교','성신여자대학교','서울대학교','한국산업기술대학교','건국대학교')]
@@ -8,7 +9,8 @@ class Review(models.Model):
     TESTS = [(test, test) for test in ('없음','1회','2회','헬')]
     ATTENDENCES = [(att, att) for att in ('안봄','보는듯마는듯','깐깐')]
     STARS = [(x,str(x)) for x in range(1, 6)]
-
+    
+    writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null=True)
     univ = models.TextField(choices=UNIVS, default='숙명여자대학교') #학교
     coursename = models.CharField(max_length=30, default='강의명') #강의제목
     prof = models.CharField(max_length=30, default='교수') #교수
@@ -23,9 +25,10 @@ class Review(models.Model):
 
     def __str__(self):
         return self.coursename
-    
+
     #이렇게 만들고 싶지 않았는데,,,,, 능력부족으로,,,,, 떄려박아 보았어욥,,,,,
     def save(self, *args, **kwargs):
+
         self.recommend = 0
 
         if self.assignment == "없음":

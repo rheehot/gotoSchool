@@ -17,8 +17,9 @@ def list(request):
         return render(request, 'list.html', {'reviews': reviews})
 
 def show(request, review_id):
+    user = request.user
     review_show = get_object_or_404(Review, pk = review_id)
-    return render(request, 'show.html', {'review':review_show})
+    return render(request, 'show.html', {'review':review_show, 'user':user})
 
 def new(request):
     return render(request, 'new.html')
@@ -28,6 +29,7 @@ def create(request):
         form = ReviewForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            post.writer = request.user
             post.save()
             return redirect('list')
         return render(request, 'new.html', {'form':form }) #form : not valid

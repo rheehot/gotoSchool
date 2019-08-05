@@ -24,4 +24,6 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('', home.views.main, name="main"),
     path('recommend/', include('recommend.urls')),
+    path('membership/', include('membership.urls')),
+    path('contact/', include('contact.urls')),
 ]

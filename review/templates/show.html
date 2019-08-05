@@ -16,7 +16,8 @@
     <br>
     <br>
   <small>
-    
+
+  <p class="r_title">글쓴이</p> {{ review.writer }} <br><br>
   <p class="r_title">강의명</p> {{ review.coursename}} <br><br>
   <p class="r_title">대학</p> {{ review.univ }}<br> <br>
 
@@ -41,5 +42,7 @@
 
 
 <a href="{% url 'list' %}">list</a>
-<a href="{% url 'update' review.id %}">update</a>
-<a href="{% url 'delete' review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">delete</a>
+{% if user == review.writer %}
+  <a href="{% url 'update' review.id %}">update</a>
+  <a href="{% url 'delete' review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">delete</a>
+{% endif %}

@@ -4,7 +4,7 @@ from .models import Review
 class ReviewForm(forms.ModelForm) :
     class Meta :
         model = Review
-        fields = '__all__'
+        fields = ['univ', 'coursename', 'prof', 'courseyear', 'coursesemester', 'content', 'assignment', 'test', 'attendence', 'star']
 
         labels = {
             'univ' : '대학교',

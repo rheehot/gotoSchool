@@ -12,8 +12,9 @@ def reviewlist(request):
     return render(request, 'reviewList.html', {'s_reviews': s_reviews})
 
 def schoolshow(request, s_review_id):
+    user = request.user
     s_review = get_object_or_404(SchoolReview, pk = s_review_id)
-    return render(request, 'schoolshow.html', {'s_review': s_review})
+    return render(request, 'schoolshow.html', {'s_review': s_review, 'user':user})
 
 def schoolnew(request):
     return render(request, 'schoolnew.html')
@@ -23,6 +24,7 @@ def schoolcreate(request):
         form = SchoolReviewForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            post.writer = request.user
             post.save()
             return redirect('reviewList')
     else:

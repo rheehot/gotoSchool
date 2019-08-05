@@ -43,7 +43,7 @@
         {% else %}
              <div class="v-avatar avatar" style="height: 90px; width: 90px;"><img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/멋쟁이사자처럼_로고.png/270px-멋쟁이사자처럼_로고.png"></div>
         {% endif %}    
-            <span class="displayName title"><a href="{% url 'schshow' s_review.id %}">{{ s_review.school }}</a></span> <span  class="displayName caption">{{s_review.date}}</span></div>
+            <span class="displayName title"><a href="{% url 'schshow' s_review.id %}">{{ s_review.school }}</a></span> <span  class="displayName caption">{{s_review.schoolyear}}-{{s_review.schoolsemester}} (글쓴이:{{s_review.writer}})</span></div>
         <!---->
         <div  class="wrapper comment">
           <p>{{ s_review.content }} </p>
@@ -65,8 +65,10 @@
 </body>
 
 <a href="{% url 'reviewList' %}">뒤로 가기</a>
-<a href="{% url 'schupdate' s_review.id %}">수정하기</a>
-<a href="{% url 'schdelete' s_review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
+{% if user == s_review.writer %}
+  <a href="{% url 'schupdate' s_review.id %}">수정하기</a>
+  <a href="{% url 'schdelete' s_review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
+{% endif %}
 </html>
 
 
