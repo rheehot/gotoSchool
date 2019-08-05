@@ -3,6 +3,10 @@ from .models import SchoolReview
 from .forms import SchoolReviewForm
 # Create your views here.
 
+def schooltest(request):
+        return render(request, 'test.html')
+
+
 def reviewlist(request):
     s_reviews = SchoolReview.objects.all()
     return render(request, 'reviewList.html', {'s_reviews': s_reviews})
