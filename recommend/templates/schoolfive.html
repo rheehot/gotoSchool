@@ -1,0 +1,18 @@
+<form action="" method="GET">
+{% csrf_token %}
+  대학 :
+  <select name="select_univ">
+    <option value = "숙명여자대학교" >숙명여자대학교</option>
+    <option value = "성신여자대학교" >성신여자대학교</option>
+    <option value = "서울대학교" >서울대학교</option>
+    <option value = "서울산업기술대학교" >서울산업기술대학교</option>
+    <option value = "건국대학교" >건국대학교</option>
+  </select>
+  <input type="submit" value="검색">
+</form>
+<h1>{{ choice }}대학교에서 가장 가기 좋은 학교는 TOP 3</h1>
+<br><br>
+<br><br>
+{% for school in schools %}
+  {{ school }}<br>
+{% endfor %}
