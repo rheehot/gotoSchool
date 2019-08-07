@@ -81,9 +81,19 @@ class LoginForm(forms.ModelForm):
         fields = ['username', 'password']
 
         widgets = {
+            'username': forms.TextInput(
+                attrs={
+                    'class': 'input100',
+                    'type': 'text',
+                    'name': 'username',
+                }),
+            
+
             'password': forms.PasswordInput(
                 attrs={
-                    'class': 'form-control',
+                    'class': 'input100',
+                    'type': 'password',
+                    'name': 'password',
                 }),
         }
 

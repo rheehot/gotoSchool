@@ -11,6 +11,12 @@ def listMessage(request):
 
     return render(request, 'listMessage.html', {'rlist': receivedList, 'slist': sentList})
 
+def sentList(request):
+    receivedList = Message.objects.filter(recipient=request.user)
+    sentList = Message.objects.filter(sender=request.user)
+
+    return render(request, 'sentList.html', {'rlist': receivedList, 'slist': sentList})
+
 def newMessage(request):
     if not request.user.is_authenticated:
         return redirect('signin')
@@ -33,6 +39,8 @@ def sendMessage(request):
     else:
         form = MessageForm()
         return render(request, 'sendMessage.html', {'form': form})
+            
+
 
 def viewMessage(request, message_id):
     if not request.user.is_authenticated:

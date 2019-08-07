@@ -17,21 +17,16 @@
 	<aside id="links" class="links-open">
 		<ol>
 
-
+            {% for send in slist %}
                
-                <h2>Message</h2>
-                    <li class="latest">
-                        <h3>From: {{ message.sender.username }}</h3>
-                        <a href="{% url 'listMessage' %}">
-                        <p>
-                        Message:
-                            <br>
-                            {{ message.content }}
-                          </a>
+                <h2>Send Messages</h2>
+                    <li>
+                        <h3>받은 사람 {{ send.recipient }}</h3>
+                        <p><a href="{% url 'viewMessage' send.id %}">{{ send.content }}<br></a>
                         <br>
                         </a></p>
                     </li>
-
+            {% endfor %}
 		</ol>
 	</aside>
   <!-- DROPDOWN -->
@@ -55,7 +50,5 @@
 <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
 <script src="/static/js/script.js"></script>
 
-</body>
-</html>
 </body>
 </html>

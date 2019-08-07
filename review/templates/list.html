@@ -1,7 +1,7 @@
 <head>
 {% load my_filters %}
 {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="/static/css/review.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/review.css?ver=1" />
     <link href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,7 +14,7 @@
   <a href="{% url 'create' %}">new</a>
 </div>
 
-{% comment %} 
+
 <form action="" method="GET">
 {% csrf_token %}
   대학 :
@@ -29,10 +29,10 @@
   강의명 :
   <input type="text" name="search_coursename">
   <input type="submit" value="검색">
-</form> {% endcomment %}
+</form> 
 
 
-  <div class="row">
+  {% comment %} <div class="row">
     <div class="container"> 
     <form class="col s12" action="" method="GET">
       {% csrf_token %}
@@ -42,7 +42,7 @@
             <label for="coursename">강의명</label>
             <button class="btn waves-effect waves-light" type="submit">검색</button>   
     </div>
-  </div>
+  </div> {% endcomment %}
 </form>
 
 

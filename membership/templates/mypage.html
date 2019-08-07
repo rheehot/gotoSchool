@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load staticfiles %}
     <meta charset="UTF-8">
-    <title>My Page :)</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/mypage.css?ver=2">
 </head>
 <body>
-<h2> My Page :) </h2>
+<h2> 마이페이지 </h2>
 <br>
-{% for data in information %}
+{% comment %} {% for data in information %}
     ID : {{ data.username }} <br>
     E-MAIL : {{ data.email }} <br>
     School : {{ data.school }} <br>
@@ -15,7 +16,93 @@
     School-ID : {{ data.schoolId }} <br>
     관심 학교 : {{ data.interest }} <br>
     <a href="{% url 'changePassword' %}">비밀번호 변경하기</a>
-{% endfor %}
+{% endfor %} {% endcomment %}
 
+{% for data in information %}
+<aside class="profile-card">
+  <header>
+    <!-- here’s the avatar -->
+    <a target="_blank">
+     {% if data.school == 4  %}
+            <img class="hoverZoomLink"  src="https://post-phinf.pstatic.net/MjAxODA4MTJfMzgg/MDAxNTM0MDYxNjMxNzI2.qYWnHXtSXQnkZbeMjmatpcVo0Vjjy87MHdiEs5G6znIg.K7Dctexbidm5_XDc4A-M2LK-sA3CfDc33eyiPG5Zzgcg.PNG/1.png?type=w1200">
+        {% elif data.school == 2 %}
+            <img class="hoverZoomLink" src="http://www.skillagit.com/data/product/1528984328.jpg">
+        {% elif data.school == 5 %}
+            <img class="hoverZoomLink"  src="https://is4-ssl.mzstatic.com/image/thumb/Purple113/v4/60/6e/1a/606e1a03-d0e1-cce5-f729-90871da705ff/source/512x512bb.jpg">
+        {% elif data.school == 3  %}
+            <img class="hoverZoomLink" src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile8.uf.tistory.com%2Fimage%2F244F50405371A29818675E">
+        {% elif data.school == 1 %}
+            <img class="hoverZoomLink"  src="https://post-phinf.pstatic.net/MjAxODA4MTFfMjQ4/MDAxNTMzOTcwMzg3MzE4.IZYrUmmeL2znXrwtN_oaTbpkw_TFRA5L6sEaw6VtX30g.bSW6DuPbkqiOuzGDIGSVcSbpv3VjOgsQMYZSbpb5WFIg.PNG/IdTKy9Ehp6cNGvO_Kn0HyyqMKVcI.jpg?type=w400">
+        {% else %}
+            <img class="hoverZoomLink"  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/멋쟁이사자처럼_로고.png/270px-멋쟁이사자처럼_로고.png">
+        {% endif %}    
+   
+    </a>
+
+
+    <!-- the username -->
+    <h1>
+            {{ data.username }}
+          </h1>
+
+    <!-- and role or location -->
+    <h2> 
+            {% if data.school == 1 %}
+                건국대학교
+            {% elif data.school == 2 %}
+                서울대학교
+            {% elif data.school == 3 %}
+                성신여자대학교
+            {% elif data.school == 4 %} 
+                숙명여자대학교
+            {% elif data.school == 5 %}
+                한국산업기술대학교
+            {% else %}
+                멋쟁이사자처럼
+            {% endif %}
+          </h2>
+
+  </header>
+
+  <!-- bit of a bio; who are you? -->
+  <div class="profile-bio">
+
+    <p>
+    E-MAIL : {{ data.email }} <br>
+  
+    Major : {{ data.major }} <br>
+    학번 : {{ data.schoolId }} <br>
+    관심 학교 : {{ data.interest }} <br>
+    <a href="{% url 'changePassword' %}">비밀번호 변경하기</a>
+    </p>
+
+  </div>
+
+  <!-- some social links to show off -->
+  <ul class="profile-social-links">
+    <li>
+      <a target="_blank" href="https://www.facebook.com/creativedonut">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://twitter.com/dropyourbass">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://github.com/vipulsaxena">
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://www.behance.net/vipulsaxena">
+       
+        <i class="fa fa-behance"></i>
+      </a>
+    </li>
+  </ul>
+</aside>
+{% endfor %} 
 </body>
 </html>

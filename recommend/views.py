@@ -65,11 +65,18 @@ def schoolfive(request):
     your_choice = search1
     if search1 :
         result = value[search1]
-        print(result)
-        print(count)
         result = Counter({k:result[k]*count[k] for k in count})
-        schools = result.most_common
+        schools = result.most_common()
+        print(schools)
+
+        schoolList = dict(schools)
+        key = list(schoolList.keys())
+        topthree = []
+
+        for i in range(3):
+            topthree.append(key[i])
+
         #schools = sorted(result.items(), key=operator.itemgetter(1),reverse = True)
-        return render(request, 'schoolfive.html', {'choice' : your_choice, 'schools' : schools})
+        return render(request, 'schoolfive.html', {'choice' : your_choice, 'schools' : schools, 'topthree':topthree,})
     else :
         return render(request, 'schoolfive.html',{'choice' : your_choice})

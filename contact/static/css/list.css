@@ -1,0 +1,535 @@
+@import url(https://fonts.googleapis.com/css?family=Signika:400,600);
+
+/* - - - - - - - - - - BODY */
+body {
+	background: #EEE;
+	overflow: hidden;
+	
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 1em;
+	color: #333;
+	text-align: justify;
+	line-height: normal;
+  
+  -webkit-font-smoothing: antialiased;
+}
+a, a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+::selection {
+	background: transparent;
+}
+
+/* - - - - - - - - - - CONTAINER */
+#container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 740px;
+	height: 695px;
+	margin: auto;
+	border-radius: 6px;
+	border: 1px solid rgb(174, 182, 187);
+	background: #333 url('https://goo.gl/c6myN') center;
+	display: block;
+	overflow: hidden;
+	
+	box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .3);
+}
+
+/* - - - - - - - - - - MESSAGES */
+#content {
+	position: absolute;
+	top: 3em;
+	bottom: 3em;
+	width: 700px;
+	padding: 10px;
+	background: #FFF url('https://goo.gl/2kwnF') center;
+	display: block;
+	overflow: auto;
+	
+	box-shadow: 		    0 0 1em 0 rgba(0, 0, 0, .3);
+	-o-box-shadow: 		  0 0 1em 0 rgba(0, 0, 0, .3);
+	-moz-box-shadow: 	  0 0 1em 0 rgba(0, 0, 0, .3);
+	-webkit-box-shadow: 0 0 1em 0 rgba(0, 0, 0, .3);
+}
+.content-close {
+	left: -360px;
+	right: 360px;
+}
+.content-open {
+	left: 0;
+	right: 0;
+}
+#content .message {
+	position: relative;
+	clear: both;
+	/* max-width: 700px; */
+	display: block;
+}
+#content .them {
+	float: left;
+}
+#content .you {
+	float: right;
+}
+#content .message .avatar {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 10px;
+	height: 10px;
+	margin: auto;
+  border-radius: 100%;
+	display: block;
+}
+#content .them .avatar {
+	right: -10px;
+  
+	box-shadow: 0 0 0 5px #6C6;
+}
+#content .them .check {
+  background: #6A6;
+}
+#content .you .avatar {
+	left: -10px;
+  
+  box-shadow: 0 0 0 5px rgb(231, 236, 237);
+}
+#content .you .check {
+	background: rgb(174, 182, 187);
+}
+#content .message .bubble {
+	cursor: default;
+	position: relative;
+	padding: 6px 10px;
+	margin: 10px;
+	border-radius: 3px;
+	display: block;
+	
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, .6),
+				      0 6px 6px -6px rgba(0, 0, 0, .3);
+	
+	font-size: 90%;
+	color: #FFF;
+}
+#content .them .bubble {
+	float: right;
+	background: #6C6;
+	
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+}
+#content .you .bubble {
+	float: left;
+	background: rgb(231, 236, 237);
+	
+	color: #AAA;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+/* - - - - - - - - - - MESSAGES LIST */
+#links {
+	position: absolute;
+	top: 3em;
+	bottom: 0;
+	width: 700px;
+	height: auto;
+	padding: 20px;
+	background: #FFF url('https://goo.gl/2kwnF') center;
+	display: block;
+	overflow: auto;
+	
+	box-shadow: 		    0 0 1em 0 rgba(0, 0, 0, .3);
+	-o-box-shadow: 		  0 0 1em 0 rgba(0, 0, 0, .3);
+	-moz-box-shadow: 	  0 0 1em 0 rgba(0, 0, 0, .3);
+	-webkit-box-shadow: 0 0 1em 0 rgba(0, 0, 0, .3);
+}
+.links-open {
+	left: 0;
+	right: 0;
+}
+.links-close {
+	left: -360px;
+	right: 360px;
+}
+#links ol h1 {
+	position: relative;
+	width: 75px;
+	height: 25px;
+	margin: auto;
+	display: block;
+	
+  font-size: 120%;
+	color: #6C6;
+	line-height: 25px;
+	text-align: center;
+	text-transform: uppercase;
+}
+#links ol h1:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 75px;
+	bottom: 0;
+	width: 75px;
+	height: 0;
+	margin: auto;
+	border-top: 2px solid #6C6;
+	display: block;
+}
+#links ol h1:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 75px;
+	bottom: 0;
+	width: 75px;
+	height: 0;
+	margin: auto;
+	border-top: 2px solid #6C6;
+	display: block;
+}
+#links ol h2 {
+	position: relative;
+	width: 75px;
+	height: 25px;
+	margin:  15px auto auto auto;
+	display: block;
+	
+  font-size: 120%;
+	color: rgb(174, 182, 187);
+	line-height: 25px;
+	text-align: center;
+	text-transform: uppercase;
+}
+#links ol h2:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 75px;
+	bottom: 0;
+	width: 75px;
+	height: 0;
+	margin: auto;
+	border-top: 2px solid rgb(174, 182, 187);
+	display: block;
+}
+#links ol h2:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 75px;
+	bottom: 0;
+	width: 75px;
+	height: 0;
+	margin: auto;
+	border-top: 2px solid rgb(174, 182, 187);
+	display: block;
+}
+#links ol li {
+	cursor: default;
+	position: relative;
+	padding: 6px 10px 9px 10px;
+	margin: 30px 0;
+	border-radius: 3px;
+	background: rgb(231, 236, 237);
+	display: block;
+	
+	box-shadow: 0 1px 0 0 rgba(255, 255, 255, .6),
+				      0 6px 6px -6px rgba(0, 0, 0, .3);
+	
+	font-size: 150%;
+	color: rgb(37, 36, 36);
+	text-shadow: 0 1px 0 #FFF;
+}
+#links ol li:last-child {
+  margin-bottom: 0;
+}
+#links ol .latest {
+  cursor: pointer;
+	background: #6C6;
+	
+	color: #FFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+}
+#links ol li h3 {
+	float: left;
+	height: 1.3em;
+	display: block;
+	color: #666;
+	line-height: 1.3em;
+}
+#links ol li span {
+	float: right;
+	height: 1.3em;
+	display: block;
+	
+  font-size: 76%;
+	line-height: 1.3em;
+}
+#links ol li p {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	color: #666;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* - - - - - - - - - - DROP */
+#drop {
+  position: absolute;
+  top: 3em;
+  right: 0;
+	display: block;
+}
+#drop ol {
+  position: absolute;
+  top: 1em;
+  right: .5em;
+  width: 4em;
+  border-radius: 3px;
+  background: rgb(174, 182, 187);
+  display: none;
+  
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, .6),
+				      0 3px 6px -3px rgba(0, 0, 0, .6);
+}
+#drop ol span {
+  position: absolute;
+  top: -6px;
+  right: 8px;
+  width: 0;
+  height: 0;
+  border-width: 0 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent rgb(174, 182, 187);
+  display: block;
+}
+#drop ol li {
+  cursor: pointer;
+  height: 23px;
+  display: block;
+  
+  font-size: 75%;
+  color: #FFF;
+  line-height: 23px;
+  text-align: center;
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, .3);
+}
+
+/* - - - - - - - - - - HEADER */
+#header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3em;
+	border-bottom: 1px solid #FFF;
+	background: rgb(174, 182, 187);
+	display: block;
+	
+	box-shadow: 0 -3px 6px 3px rgba(0, 0, 0, .3);
+}
+#header .button {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 2em;
+	height: 2em;
+	margin: auto;
+	border-radius: 100%;
+	border: 0;
+	background: #FFF;
+	display: none;
+}
+#header #back {
+	left: 1em;
+}
+#header #edit {
+	right: 1em;
+}
+#header #back span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 5px;
+	height: 5px;
+	margin: auto;
+	border-width: 1px 0 0 1px;
+	border-style: solid;
+	border-color: #999;
+	display: block;
+}
+#header #edit span {
+	position: absolute;
+	top: 1px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 8px;
+	height: 1px;
+	margin: auto;
+	background: #999;
+	display: block;
+	
+	box-shadow: 0 -3px 0 0 #999,
+				0 3px 0 0 #999;
+}
+#header h1 {
+	cursor: default;
+	position: absolute;
+	top: 0;
+	left: 3em;
+	right: 3em;
+	bottom: 0;
+	height: 2em;
+	margin: auto;
+	display: block;
+	
+	font-size: 1.2em;
+	color: #FFF;
+	font-weight: 600;
+	line-height: 2em;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0 -1px 1px rgba(0, 0, 0, .3);
+}
+
+/* - - - - - - - - - - FOOTER */
+#footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 3em;
+	border-top: 1px solid #FFF;
+	background: rgb(174, 182, 187);
+	display: none;
+	
+	box-shadow: 0 3px 6px 3px rgba(0, 0, 0, .3);
+}
+#footer button {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 2em;
+	height: 2em;
+	margin: auto;
+	border-radius: 100%;
+	border: 0;
+	background: #FFF;
+	display: block;
+}
+#footer #camera {
+	left: 1em;
+}
+#footer #send {
+	right: 1em;
+}
+#footer #camera span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 16px;
+	height: 16px;
+	margin: auto;
+	border-radius: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #999;
+	display: block;
+}
+#footer #camera span sub {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 6px;
+	height: 6px;
+	margin: auto;
+	border-radius: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #AAA;
+	background: #666;
+	display: block;
+}
+#footer #camera span p {
+	position: absolute;
+	top: -5px;
+	left: 5px;
+	right: 0;
+	bottom: 0;
+	width: 3px;
+	height: 3px;
+	margin: auto;
+	border-radius: 100%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCC;
+	background: #FFF;
+	display: block;
+}
+#footer #send span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 5px;
+	height: 5px;
+	margin: auto;
+	border-width: 0 1px 1px 0;
+	border-style: solid;
+	border-color: #999;
+	display: block;
+}
+#footer #message {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 3em;
+	right: 3em;
+	bottom: 0;
+	height: 1.5em;
+	margin: auto;
+	outline: 0;
+	border-radius: 3px;
+	border: 0;
+	background: #FFF;
+	display: block;
+	
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	
+	font-family: 'Do Hyeon', sans-serif;
+	font-size: 1em;
+	color: #999;
+	line-height: 1.5em;
+	text-indent: .5em;
+	line-height: 1.5em;
+  
+  -webkit-font-smoothing: antialiased;
+}
+
+/* - - - - - - - - - - FLASH */
+#flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, .6);
+  display: none;
+}

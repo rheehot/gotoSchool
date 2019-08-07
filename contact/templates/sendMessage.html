@@ -1,5 +1,47 @@
-send Message
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>message stuff</title>
+  <link rel="stylesheet" href="/static/css/message.css?ver=1">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
 <br>
+
+<section class="page row">
+			
+			<div class="h_50">
+				
+				<div class="contact">
+					{% comment %} <img src="https://cdn.shopify.com/s/files/1/0062/2883/6450/files/home-hero_900x.gif?v=1555746481" class="contact_image"> {% endcomment %}
+                    <img src="/static/images/message.gif" class="contact_image">
+					<form method="POST">
+                    {% csrf_token %}
+                        {% for field in form %}
+                        {% if field == form.recipient %}
+						    <input class="form-control" type="text" name="recipient">
+                        {% comment %} {{form.recipient}} {% endcomment %}
+                         {% endif %}
+                        {% if field == form.content %}
+						<textarea name="content"></textarea>
+                              {{ form.errors }}
+                                {{ form.non_field_errors }}
+                        {% endif %}
+                        {% endfor %}
+						<p id="submission"><button type="submit" class="btn btn_margin" value="send">Submit</button></p>
+
+					</form>
+
+				</div>
+
+			</div>
+		</section>
+<!-- partial -->
+
 <form method="POST">
     {% csrf_token %}
     <table>
@@ -9,4 +51,7 @@ send Message
     </table>
     <br>
     <input type="submit" value="send">
-</form>
+</form> 
+  
+</body>
+</html>

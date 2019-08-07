@@ -6,4 +6,5 @@ urlpatterns = [
     path('detail/<int:message_id>', views.viewMessage, name='viewMessage'),
     path('new', views.newMessage, name='newMessage'),
     path('send', views.sendMessage, name='sendMessage'),
+    path('sent/', views.sentList, name='sentList'),
 ]
