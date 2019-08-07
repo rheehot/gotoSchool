@@ -3,10 +3,20 @@
 <head>
     {% load staticfiles %}
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/static/css/mypage.css?ver=2">
+    <link rel="stylesheet" type="text/css" href="/static/css/mypage.css?ver=1">
+    
+    {% comment %} 링크 흔적 없애기 {% endcomment %}
+    <style>
+        a { text-decoration: none; color: #7AC351; }
+        a:visited { text-decoration: none; }
+        a:hover { text-decoration: none; }
+        a:focus { text-decoration: none; }
+        a:hover, a:active { text-decoration: none; }
+    </style> 
+
 </head>
 <body>
-<h2> 마이페이지 </h2>
+
 <br>
 {% comment %} {% for data in information %}
     ID : {{ data.username }} <br>
@@ -73,35 +83,16 @@
     Major : {{ data.major }} <br>
     학번 : {{ data.schoolId }} <br>
     관심 학교 : {{ data.interest }} <br>
-    <a href="{% url 'changePassword' %}">비밀번호 변경하기</a>
+      <p style="text-align:center;" id="textcenter">
+          <a href="../../contact/listmessage" class="linkcolor">받은 쪽지함</a><br>
+          <a href="{% url 'changePassword' %}" class="linkcolor">비밀번호 변경하기</a>
+          <a href="{% url 'logout' %}" class="linkcolor">로그아웃</a><br>
+      </p>
+
     </p>
 
   </div>
 
-  <!-- some social links to show off -->
-  <ul class="profile-social-links">
-    <li>
-      <a target="_blank" href="https://www.facebook.com/creativedonut">
-        <i class="fa fa-facebook"></i>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="https://twitter.com/dropyourbass">
-        <i class="fa fa-twitter"></i>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="https://github.com/vipulsaxena">
-        <i class="fa fa-github"></i>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="https://www.behance.net/vipulsaxena">
-       
-        <i class="fa fa-behance"></i>
-      </a>
-    </li>
-  </ul>
 </aside>
 {% endfor %} 
 </body>
