@@ -10,9 +10,9 @@
   </select>
   <input type="submit" value="검색">
 </form>
-<h1>{{ choice }}대학교에서 가장 가기 좋은 학교는 TOP 3</h1>
+<h1>{{ choice }}에서 가장 가기 좋은 학교는 TOP 3</h1>
 <br><br>
 <br><br>
-{% for school in schools %}
+{% for school in topthree %}
   {{ school }}<br>
 {% endfor %}
