@@ -1,3 +1,22 @@
+
+<head>
+{% load my_filters %}
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="/static/css/schoolrecommend.css?ver=1" />
+    <link href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<script type="text/javascript" src="static/js/recommend.js"></script>
+
+
+
+<br><br>
+<br><br>
+
+<div window>
 <form action="" method="GET">
 {% csrf_token %}
   대학 :
@@ -10,9 +29,17 @@
   </select>
   <input type="submit" value="검색">
 </form>
-<h1>{{ choice }}에서 가장 가기 좋은 학교는 TOP 3</h1>
-<br><br>
-<br><br>
-{% for school in topthree %}
-  {{ school }}<br>
-{% endfor %}
+
+  <div class="main">
+<h2>{{ choice }}에서 가장 가기 좋은 학교 <br> TOP 3</h2>
+    {% for school in topthree %}
+    <details>
+      <summary>{{ school }}<br></summary>
+ 
+    </details>
+    {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
