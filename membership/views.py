@@ -11,7 +11,7 @@ from django.contrib.auth.hashers import check_password
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    return render(request, '../index.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -33,7 +33,7 @@ def signup(request):
                 form.save_m2m()
 
                 login(request, newUser)
-                return redirect('home')
+                return redirect('mypage')
             else:
                 return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'})
         
@@ -65,7 +65,7 @@ def signin(request):
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('home')
+        return redirect('')
     return render(request, 'signup.html')
 
 @csrf_exempt
@@ -80,16 +80,16 @@ def deleteAccount(request):
 
                 if user is not None:
                     user.delete()
-                    return redirect('home')
+                    return redirect('signin')
                 else:
                     HttpResponse("회원 탈퇴 실패. 다시 시도해주세요.")
 
         except user.DoesNotExist:
             messages.error(request, "User does not exist")
-            return render(request, 'home.html')
+            return render(request, 'login.html')
 
         except Exception as e:
-            return render(request, 'home.html', {'err': print(e)})
+            return render(request, 'login.html', {'err': print(e)})
     else:
         form = DeleteAccountForm()
         return render(request, 'deleteAccount.html', {'form': form})
