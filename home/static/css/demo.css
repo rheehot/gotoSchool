@@ -28,19 +28,22 @@ background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, F
 }
 
 a {
-	color: #7AC351;
+	color: rgba(255, 255, 255, 0.8);
 	text-decoration: none;
 }
 
 a:hover {
-	color: #000;
+	background: -webkit-linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .container > header {
 	width: 90%;
 	max-width: 69em;
-	margin: 0 auto;
+	margin: 0;
 	padding: 2.875em 1.875em 1.875em;
+	
 }
 
 .container > header h1 {
