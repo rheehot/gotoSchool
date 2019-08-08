@@ -9,7 +9,29 @@ def schooltest(request):
 
 def reviewlist(request):
     s_reviews = SchoolReview.objects.all()
+    user = request.user
+    interest = user.interest
+    interests = []
+    
+    a = len(interest)
+    for i in range(a):
+        if interest[i] == '1':
+            interests.append('건국대학교')
+        elif interest[i] == '2':
+            interests.append('서울대학교')
+        elif interest[i] == '3':
+            interests.append('성신여자대학교')
+        elif interest[i] == '4':
+            interests.append('숙명여자대학교')
+        elif interest[i] == '5':
+            interests.append('한국산업기술대학교')
+            
+    s_reviews = s_reviews.filter(school__in=interests)
     return render(request, 'reviewList.html', {'s_reviews': s_reviews})
+
+def allreviewlist(request):
+    s_reviews = SchoolReview.objects.all()   
+    return render(request, 'allreviewList.html', {'s_reviews': s_reviews})
 
 def schoolshow(request, s_review_id):
     user = request.user

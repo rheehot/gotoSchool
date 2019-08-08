@@ -32,17 +32,18 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'membership.apps.MembershipConfig',
-    'contact.apps.ContactConfig',
-    'home.apps.HomeConfig',
-    'recommend.apps.RecommendConfig',
-    'review.apps.ReviewConfig',
-    'schoolreview.apps.SchoolreviewConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'contact.apps.ContactConfig',
+    'home.apps.HomeConfig',
+    'recommend.apps.RecommendConfig',
+    'review.apps.ReviewConfig',
+    'schoolreview.apps.SchoolreviewConfig',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +129,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = "./hackerthon/project/static"
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
 AUTH_USER_MODEL = 'membership.Member'
 
 AUTHENTICATION_BACKENDS = (
@@ -139,4 +140,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-
+INTERNAL_IPS = ('127.0.0.1',)

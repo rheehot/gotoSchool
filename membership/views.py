@@ -2,16 +2,19 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import CreateUserForm, LoginForm, DeleteAccountForm, ChangePasswordForm
 from .models import Member
+from review.models import Review
+from schoolreview.models import SchoolReview
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password
+from django.template import RequestContext
 
 # Create your views here.
 def home(request):
-    return render(request, '../index.html')
+    return render(request,  '../index.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -29,13 +32,15 @@ def signup(request):
                 newUser.major = form.cleaned_data.get("major")
                 newUser.schoolId = form.cleaned_data.get("schoolId")
                 newUser.imgOfIdcard = form.cleaned_data.get("imgOfIdcard")
+                newUser.interest = form.cleaned_data.get("interest")
+                    
                 newUser.save()
                 form.save_m2m()
 
                 login(request, newUser)
                 return redirect('mypage')
             else:
-                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'})
+                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'}, context_instance=RequestContext(request))
         
         else:
             return HttpResponse('이미 존재하는 아이디입니다. 다시 입력해주세요.')
@@ -86,7 +91,7 @@ def deleteAccount(request):
 
         except user.DoesNotExist:
             messages.error(request, "User does not exist")
-            return render(request, 'login.html')
+            return render(request, 'home.html')
 
         except Exception as e:
             return render(request, 'login.html', {'err': print(e)})
@@ -100,9 +105,16 @@ def mypage(request):
 
     information = Member.objects.filter(username=request.user)
 
-    # 학교리뷰, 수업리뷰에서 내가 쓴 글 불러오기
-
     return render(request, 'mypage.html', {'information': information})
+
+def myposts(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
+
+    myschoolreview = SchoolReview.objects.filter(writer=request.user)
+    myreview = Review.objects.filter(writer=request.user)
+
+    return render(request, 'myposts.html', {'myschoolreview': myschoolreview, 'myreview': myreview})
 
 #마이페이지에서 비밀번호 변경하기
 def changePassword(request):

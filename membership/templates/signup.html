@@ -2,10 +2,55 @@
 <br>
 <form method="POST" action="" enctype="multipart/form-data">
     {%csrf_token%}
+
     {% for field in form %}
-        {{field.label}}
-        {{field}}
-        <br>
+        {% if field == form.username %}
+            {{field.label}} : <input type="text" name="username">
+            <br><br>
+
+        {% elif field == form.password %}
+            {{field.label}} : <input type="password" name="password">
+            <br><br>
+
+        {% elif field == form.passwordCheck %}
+            비밀번호 확인 : <input type="password" name="password">
+            <br><br>
+
+        {% elif field == form.email %}
+            {{field.label}} : <input type="email" name="email">
+            <br><br>    
+
+        {% elif field == form.school %}
+            {{field.label}} : <select name="school">
+                {% for choice in field %}
+                
+                    <option>{{choice}}</option>
+                
+                {% endfor %}
+            </select>
+            <br><br>
+
+        {% elif field == form.major %}
+            {{field.label}} : <input type="text" name="major">
+            <br><br>
+
+        {% elif field == form.schoolId %}
+            {{field.label}} : <input type="text" name="schoolId">
+            <br><br>
+
+        {% elif field == form.imgOfIdcard %}
+            {{field.label}} : <input type="file" accept=".jpg, .png" name="imgOfIdcard">
+            <br><br>
+
+        {% elif field == form.interest %}
+            {{field.label}} : <br>
+             {% for choice in form.interest %}
+                <input type="hidden" class="form-controls">{{choice}}</input> <br>
+            {% endfor %}
+        {% endif %}
     {% endfor %}
+        <br>
+        <br>
     <input type = "submit" value="회원가입">
 </form>
+
