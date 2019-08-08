@@ -13,8 +13,13 @@
         a:focus { text-decoration: none; }
         a:hover, a:active { text-decoration: none; }
     </style> 
-
+<div style="position: absolute; z-index:2; margin-left:2%; padding-top: 2%;" onclick="location.href='/';">
+<a href="#">
+    <img src="/static/images/title.png" style="width:150px; height:auto;" />
+</div>
 </head>
+
+
 <body>
 
 <br>
@@ -83,6 +88,8 @@
     Major : {{ data.major }} <br>
     학번 : {{ data.schoolId }} <br>
     관심 학교 : {{ data.interest }} <br>
+        <br>
+            
       <p style="text-align:center;" id="textcenter">
           <a href="../../contact/listmessage" class="linkcolor">받은 쪽지함</a>
           <a href="{% url 'myposts' %}" class="linkcolor">내가 쓴 글<br>
@@ -91,6 +98,7 @@
       </p>
 
     </p>
+
 
   </div>
 

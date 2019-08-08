@@ -10,15 +10,21 @@
       --w: 50vh;  
     }  
   }
+
+
+
   
   html, body {
+    
     height: 100%;
     min-height: 100%;
     margin: 0;
   }
   
   body {
-    display: flex;
+    /* display: flex;  */
+    display: inline;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     background: #f0f0f0;
@@ -26,6 +32,9 @@
   }
   
   [window] {
+    margin-left:auto;
+    margin-right:auto;
+
     width: var(--w);
     height: calc(var(--w) *1.6);
     min-width: 50em;
