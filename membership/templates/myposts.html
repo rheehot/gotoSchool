@@ -1,0 +1,18 @@
+내가 쓴 학교 리뷰:
+{% for schoolreview in myschoolreview %}
+    <li>{{schoolreview.school}}</li>
+    <li><a href="{% url 'schshow' schoolreview.id %}"> {{schoolreview.content}}</a>
+    </li>
+    <br>
+{% endfor %}
+
+<br>
+<br>
+
+내가 쓴 수업 리뷰:
+{% for review in myreview %}
+    <li>{{review.univ}}</li>
+    <li>{{review.coursename}}</li>
+    <li><a href="{% url 'show' review.id %}">{{review.content}}</a></li>
+    <br>
+{% endfor %}

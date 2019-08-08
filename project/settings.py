@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'recommend.apps.RecommendConfig',
     'review.apps.ReviewConfig',
     'schoolreview.apps.SchoolreviewConfig',
-    'debug_toolbar',
     'multiselectfield',
 ]
 
@@ -55,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -128,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+STATIC_ROOT = "./project/project/static"
 AUTH_USER_MODEL = 'membership.Member'
 
 AUTHENTICATION_BACKENDS = (
