@@ -7,9 +7,7 @@ new
 
     <tr>
     <th><label for="id_univ">대학교:</label></th>
-    <td>
-    {% comment %} <option value="숙명여자대학교" selected>숙명여자대학교</option> {% endcomment %}
-    <select name="univ" id="id_univ">
+    <td><select name="univ" id="id_univ">
         <option value="숙명여자대학교" selected>숙명여자대학교</option>
         <option value="성신여자대학교">성신여자대학교</option>
         <option value="서울대학교">서울대학교</option>
@@ -34,18 +32,18 @@ new
     <tr>
     <th><label for="id_courseyear">수강년도:</label></th>
     <td><select name="courseyear" id="id_courseyear">
-        {% for courseyear in form.courseyear %}
-            <option value="">{{courseyear}}</option>
-        {% endfor %}
+        <option value="2018">2018</option>
+        <option value="2019" selected>2019</option>
     </select></td>
     </tr>
 
     <tr>
     <th><label for="id_coursesemester">수강학기:</label></th>
     <td><select name="coursesemester" id="id_coursesemester">
-        {% for coursesemester in form.coursesemester %}
-            <option value="">{{coursesemester}}</option>
-        {% endfor %}
+        <option value="1학기" selected>1학기</option>
+        <option value="여름학기">여름학기</option>
+        <option value="2학기">2학기</option>
+        <option value="겨울학기">겨울학기</option>
     </select></td>
     </tr>
 
@@ -57,27 +55,29 @@ new
     <tr>
     <th><label for="id_assignment">과제:</label></th>
     <td><select name="assignment" id="id_assignment">
-        {% for assignment in form.assignment %}
-            <option value="">{{assignment}}</option>
-        {% endfor %}
+        <option value="없음" selected>없음</option>
+        <option value="적음">적음</option>
+        <option value="보통">보통</option>
+        <option value="헬">헬</option>
     </select></td>
     </tr>
 
     <tr>
     <th><label for="id_test">시험:</label></th>
     <td><select name="test" id="id_test">
-         {% for test in form.test %}
-            <option value="">{{test}}</option>
-        {% endfor %}
+        <option value="없음" selected>없음</option>
+        <option value="1회">1회</option>
+        <option value="2회">2회</option>
+        <option value="헬">헬</option>
     </select></td>
     </tr>
 
     <tr>
     <th><label for="id_attendence">출결:</label></th>
     <td><select name="attendence" id="id_attendence">
-        {% for attendence in form.attendence %}
-            <option value="">{{attendence}}</option>
-        {% endfor %}
+        <option value="안봄" selected>안봄</option>
+        <option value="보는듯마는듯">보는듯마는듯</option>
+        <option value="깐깐">깐깐</option>
     </select></td>
     </tr>
 
