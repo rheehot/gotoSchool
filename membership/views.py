@@ -8,10 +8,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password
+from django.template import RequestContext
 
 # Create your views here.
 def home(request):
-    return render(request, '../index.html')
+    return render(request,  '../index.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -29,13 +30,15 @@ def signup(request):
                 newUser.major = form.cleaned_data.get("major")
                 newUser.schoolId = form.cleaned_data.get("schoolId")
                 newUser.imgOfIdcard = form.cleaned_data.get("imgOfIdcard")
+                newUser.interest = form.cleaned_data.get("interest")
+                    
                 newUser.save()
                 form.save_m2m()
 
                 login(request, newUser)
                 return redirect('mypage')
             else:
-                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'})
+                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'}, context_instance=RequestContext(request))
         
         else:
             return HttpResponse('이미 존재하는 아이디입니다. 다시 입력해주세요.')
@@ -86,7 +89,7 @@ def deleteAccount(request):
 
         except user.DoesNotExist:
             messages.error(request, "User does not exist")
-            return render(request, 'login.html')
+            return render(request, 'home.html')
 
         except Exception as e:
             return render(request, 'login.html', {'err': print(e)})

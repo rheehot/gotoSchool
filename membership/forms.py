@@ -1,15 +1,15 @@
 from django import forms
-from .models import Member, InterestSchool
+from .models import Member
+from django.forms.widgets import CheckboxSelectMultiple
+from multiselectfield import MultiSelectFormField
 
 
 class CreateUserForm(forms.ModelForm):
 
     passwordCheck = forms.CharField(max_length=100, widget=forms.PasswordInput())
-
-    def __init__(self, *args, **kwargs):
-        super(CreateUserForm, self).__init__(*args, **kwargs)
-        self.fields['interest'] = forms.ModelMultipleChoiceField(queryset=InterestSchool.objects.all(), widget=forms.CheckboxSelectMultiple(), required=False)
-        #self.fields['interest'].choices = [(x.id, x) for x in InterestSchool.objects.all()]
+    # interest = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices)
+    # interest = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=, label="관심학교")
+    #interest = MultiSelectFormField(choices=Member.INTEREST_SCHOOL, label="관심학교")
 
     field_order = ['username',
                  'password',
@@ -52,12 +52,15 @@ class CreateUserForm(forms.ModelForm):
                     'class': 'form-schoolchoice',
                 }
             ),
-            # 'interest': forms.CheckboxSelectMultiple(
-            #     attrs={
-            #         'class': 'form-interest',
-            #     }, 
-            #     choices=InterestSchool.INTEREST_SCHOOL
-            # )
+            'interest': forms.CheckboxSelectMultiple,
+        }
+
+        # queryset = {
+        #     'interest': InterestSchool.objects.all()
+        # }
+
+        choices = {
+            'interest': Member.INTEREST_SCHOOL,
         }
 
         labels = {
@@ -74,6 +77,10 @@ class CreateUserForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs['maxlength'] = 15
+        self.fields['interest'] = MultiSelectFormField(choices=Member.INTEREST_SCHOOL, label="관심학교")
+        
+
+
 
 class LoginForm(forms.ModelForm):
     class Meta:
@@ -87,10 +94,10 @@ class LoginForm(forms.ModelForm):
                     'type': 'text',
                     'name': 'username',
                 }),
-            
 
             'password': forms.PasswordInput(
                 attrs={
+                    'class': 'form-control',
                     'class': 'input100',
                     'type': 'password',
                     'name': 'password',

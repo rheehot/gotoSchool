@@ -32,17 +32,19 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'membership.apps.MembershipConfig',
-    'contact.apps.ContactConfig',
-    'home.apps.HomeConfig',
-    'recommend.apps.RecommendConfig',
-    'review.apps.ReviewConfig',
-    'schoolreview.apps.SchoolreviewConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'contact.apps.ContactConfig',
+    'home.apps.HomeConfig',
+    'recommend.apps.RecommendConfig',
+    'review.apps.ReviewConfig',
+    'schoolreview.apps.SchoolreviewConfig',
+    'debug_toolbar',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -136,4 +139,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
-
+INTERNAL_IPS = ('127.0.0.1',)
