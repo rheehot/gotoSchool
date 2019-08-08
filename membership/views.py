@@ -11,10 +11,12 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password
 from django.template import RequestContext
+from django.contrib import messages
 
 # Create your views here.
 def home(request):
     return render(request,  '../index.html')
+
 
 def signup(request):
     if request.method == 'POST':
@@ -36,6 +38,7 @@ def signup(request):
                     
                 newUser.save()
                 form.save_m2m()
+                messages.info('회원이 되어주셔서 감사합니다. WelCome ~ :)')
 
                 login(request, newUser)
                 return redirect('mypage')
@@ -43,11 +46,13 @@ def signup(request):
                 return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'}, context_instance=RequestContext(request))
         
         else:
-            return HttpResponse('이미 존재하는 아이디입니다. 다시 입력해주세요.')
+            messages.error('이미 존재하는 아이디이거나 회원가입에 실패했습니다. 다시 입력해주세요 :)')
+            return redirect('signup')
     
     else:
         form = CreateUserForm()
         return render(request, 'signup.html', {'form': form})
+
 
 def signin(request):
     if request.method == "POST":
@@ -61,17 +66,20 @@ def signin(request):
             return redirect('home')
         
         else: 
-            return HttpResponse("로그인 실패. 다시 시도해주세요.")
+            messages.error('로그인에 실패했습니다. 다시 시도해주세요 :)')
+            return redirect('signin')
     
     else:
         form = LoginForm()
         return render(request, 'login.html', {'form': form})
+
 
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('')
     return render(request, 'signup.html')
+
 
 @csrf_exempt
 @login_required(login_url='http://127.0.0.1:8000/membership/login/')
@@ -87,7 +95,8 @@ def deleteAccount(request):
                     user.delete()
                     return redirect('signin')
                 else:
-                    HttpResponse("회원 탈퇴 실패. 다시 시도해주세요.")
+                    messages.error('회원 탈퇴에 실패했습니다. 다시 시도해주세요. ')
+                    return redirect('deleteAccount')
 
         except user.DoesNotExist:
             messages.error(request, "User does not exist")
@@ -99,6 +108,7 @@ def deleteAccount(request):
         form = DeleteAccountForm()
         return render(request, 'deleteAccount.html', {'form': form})
 
+
 def mypage(request):
     if not request.user.is_authenticated:
         return redirect('signin')
@@ -106,6 +116,7 @@ def mypage(request):
     information = Member.objects.filter(username=request.user)
 
     return render(request, 'mypage.html', {'information': information})
+
 
 def myposts(request):
     if not request.user.is_authenticated:
@@ -116,7 +127,7 @@ def myposts(request):
 
     return render(request, 'myposts.html', {'myschoolreview': myschoolreview, 'myreview': myreview})
 
-#마이페이지에서 비밀번호 변경하기
+
 def changePassword(request):
 
     if request.method == 'POST':
@@ -136,9 +147,11 @@ def changePassword(request):
                     return redirect('mypage')
                 else:
                     messages.error(request, '새로운 비밀번호가 서로 일치하지 않습니다. ')
+                    return redirect('changePassword')
             
             else:
                 messages.error(request, '현재 비밀번호가 일치하지 않습니다.')
+                return redirect('changePassword')
 
     else:
         form = ChangePasswordForm()
