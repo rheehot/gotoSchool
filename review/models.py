@@ -1,8 +1,10 @@
 from django.db import models
 from django.conf import settings
+from membership.models import Member
 
 class Review(models.Model):
     UNIVS = [(univ, univ) for univ in ('숙명여자대학교','성신여자대학교','서울대학교','한국산업기술대학교','건국대학교')]
+    #UNIVS = [(univ, univ) for univ in ('건국대학교','서울대학교','성신여자대학교','숙명여자대학교','한국산업기술대학교')]
     YEARS = [(year, year) for year in (2018,2019)]
     SEMESTERS = [(semester, semester) for semester in ('1학기','여름학기','2학기','겨울학기')]
     ASSIGNMENTS = [(ass, ass) for ass in ('없음','적음','보통','헬')]
@@ -11,13 +13,14 @@ class Review(models.Model):
     STARS = [(x,str(x)) for x in range(1, 6)]
     
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete = models.CASCADE, null=True)
+    #interest = models.ForeignKey(Member, on_delete = models.CASCADE, null=True)
     univ = models.TextField(choices=UNIVS, default='숙명여자대학교') #학교
     coursename = models.CharField(max_length=30, default='강의명') #강의제목
     prof = models.CharField(max_length=30, default='교수') #교수
     courseyear = models.IntegerField(choices=YEARS, default='2019') #수강학기(년도)
     coursesemester = models.TextField(choices=SEMESTERS, default='1학기') #수강학기(학기)
     content = models.TextField(default='강의평을 작성하세요.') #강의평
-    assignment = models.TextField(choices=ASSIGNMENTS, default=5) #과제
+    assignment = models.TextField(choices=ASSIGNMENTS, default='없음') #과제
     test = models.TextField(choices=TESTS, default='없음') #시험
     attendence = models.TextField(choices=ATTENDENCES, default='안봄') #출결
     star = models.IntegerField(choices=STARS, default=5) #별점

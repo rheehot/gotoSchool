@@ -1,8 +1,100 @@
-edit.html
-<br><br>
+edit
+<br>
 <form method='POST'>
+    {% csrf_token %}
+    <input type="hidden">
+    <table>
+
+    <tr>
+    <th><label for="id_univ">대학교:</label></th>
+    <td>
+    {% comment %} <option value="숙명여자대학교" selected>숙명여자대학교</option> {% endcomment %}
+    <select name="univ" id="id_univ">
+        {% for univ in form.univ %}
+            <option value="">{{univ}}</option>
+        {% endfor %}
+    </select></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_coursename">강의명:</label></th>
+    <td><input type="text" name="coursename" value="강의명" maxlength="30" required id="id_coursename"></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_prof">교수:</label></th>
+    <td><input type="text" name="prof" value="교수" maxlength="30" required id="id_prof"></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_courseyear">수강년도:</label></th>
+    <td><select name="courseyear" id="id_courseyear">
+        {% for courseyear in form.courseyear %}
+            <option value="">{{courseyear}}</option>
+        {% endfor %}
+    </select></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_coursesemester">수강학기:</label></th>
+    <td><select name="coursesemester" id="id_coursesemester">
+        {% for coursesemester in form.coursesemester %}
+            <option value="">{{coursesemester}}</option>
+        {% endfor %}
+    </select></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_content">강의평:</label></th>
+    <td><textarea name="content" cols="40" rows="10" required id="id_content">강의평을 작성하세요.</textarea></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_assignment">과제:</label></th>
+    <td><select name="assignment" id="id_assignment">
+        {% for assignment in form.assignment %}
+            <option value="">{{assignment}}</option>
+        {% endfor %}
+    </select></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_test">시험:</label></th>
+    <td><select name="test" id="id_test">
+         {% for test in form.test %}
+            <option value="">{{test}}</option>
+        {% endfor %}
+    </select></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_attendence">출결:</label></th>
+    <td><select name="attendence" id="id_attendence">
+        {% for attendence in form.attendence %}
+            <option value="">{{attendence}}</option>
+        {% endfor %}
+    </select></td>
+    </tr>
+
+    <tr>
+    <th><label for="id_star_0">별점:</label></th>
+    <td><ul id="id_star">
+    <li><label for="id_star_0"><input type="radio" name="star" value="1" required id="id_star_0">1</label></li>
+    <li><label for="id_star_1"><input type="radio" name="star" value="2" required id="id_star_1">2</label></li>
+    <li><label for="id_star_2"><input type="radio" name="star" value="3" required id="id_star_2">3</label></li>
+    <li><label for="id_star_3"><input type="radio" name="star" value="4" required id="id_star_3">4</label></li>
+    <li><label for="id_star_4"><input type="radio" name="star" value="5" required id="id_star_4" checked>5</label></li>
+    </ul></td>
+    </tr>
+    
+    </table>
+    <br>
+    <input type="submit" value="수정">
+</form>
+<br><br>
+{% comment %} <form method='POST'>
     {% csrf_token %}
     {{form.as_p}}
     <br>
     <input type="submit" value="수정">
-</form>
+</form> {% endcomment %}

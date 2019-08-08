@@ -1,20 +1,43 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Review
 from .forms import ReviewForm
+from membership.models import Member
 
 def list(request):
     reviews = Review.objects.all()
-    search1 = request.GET.get('select_univ', None)
+    user = request.user
+    interest = user.interest
+    interests = []
+
+    a = len(interest)
+    for i in range(a):
+        if interest[i] == '1':
+            interests.append('건국대학교')
+        elif interest[i] == '2':
+            interests.append('서울대학교')
+        elif interest[i] == '3':
+            interests.append('성신여자대학교')
+        elif interest[i] == '4':
+            interests.append('숙명여자대학교')
+        elif interest[i] == '5':
+            interests.append('한국산업기술대학교')
+            
+    reviews = reviews.filter(univ__in=interests)
     search2 = request.GET.get('search_coursename', None)
-    if search1 :
-        reviews = reviews.filter(univ__icontains=search1)
-        if search2 :
-            reviews = reviews.filter(coursename__icontains=search2)
-            return render(request, 'list.html', {'reviews' : reviews})
-        else :
-            return render(request, 'list.html', {'reviews': reviews})
+    if search2 :
+        reviews = reviews.filter(coursename__icontains=search2)
+        return render(request, 'list.html', {'reviews' : reviews})
     else :
         return render(request, 'list.html', {'reviews': reviews})
+
+def alllist(request):
+    reviews = Review.objects.all()
+    search2 = request.GET.get('search_coursename', None)
+    if search2 :
+        reviews = reviews.filter(coursename__icontains=search2)
+        return render(request, 'alllist.html', {'reviews' : reviews})
+    else :
+        return render(request, 'alllist.html', {'reviews': reviews})
 
 def show(request, review_id):
     user = request.user
