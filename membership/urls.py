@@ -11,4 +11,5 @@ urlpatterns = [
     path('remove_account/', views.deleteAccount, name='deleteAccount'),
     path('mypage/', views.mypage, name='mypage'),
     path('manage/password/change', views.changePassword, name='changePassword'),
+    path('mypage/myposts/', views.myposts, name='myposts')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

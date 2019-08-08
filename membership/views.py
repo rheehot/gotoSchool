@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .forms import CreateUserForm, LoginForm, DeleteAccountForm, ChangePasswordForm
 from .models import Member
+from review.models import Review
+from schoolreview.models import SchoolReview
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
 from django.contrib import messages
@@ -103,9 +105,16 @@ def mypage(request):
 
     information = Member.objects.filter(username=request.user)
 
-    # 학교리뷰, 수업리뷰에서 내가 쓴 글 불러오기
-
     return render(request, 'mypage.html', {'information': information})
+
+def myposts(request):
+    if not request.user.is_authenticated:
+        return redirect('signin')
+
+    myschoolreview = SchoolReview.objects.filter(writer=request.user)
+    myreview = Review.objects.filter(writer=request.user)
+
+    return render(request, 'myposts.html', {'myschoolreview': myschoolreview, 'myreview': myreview})
 
 #마이페이지에서 비밀번호 변경하기
 def changePassword(request):

@@ -84,7 +84,8 @@
     학번 : {{ data.schoolId }} <br>
     관심 학교 : {{ data.interest }} <br>
       <p style="text-align:center;" id="textcenter">
-          <a href="../../contact/listmessage" class="linkcolor">받은 쪽지함</a><br>
+          <a href="../../contact/listmessage" class="linkcolor">받은 쪽지함</a>
+          <a href="{% url 'myposts' %}" class="linkcolor">내가 쓴 글<br>
           <a href="{% url 'changePassword' %}" class="linkcolor">비밀번호 변경하기</a>
           <a href="{% url 'logout' %}" class="linkcolor">로그아웃</a><br>
       </p>
