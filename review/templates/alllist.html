@@ -3,7 +3,7 @@
 {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="/static/css/search1.css?ver=1" />
 		<link rel="stylesheet" type="text/css" href="/static/css/search2.css" />
-    <link rel="stylesheet" type="text/css" href="/static/css/review.css?ver=1" />
+    <link rel="stylesheet" type="text/css" href="/static/css/review.css?ver=2" />
     <link href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
@@ -12,9 +12,7 @@
 
 <body>
 
-<div>
-  <a href="{% url 'create' %}">new</a>
-</div>
+
 
 {{interest}}
 <form action="" method="GET">
@@ -35,8 +33,13 @@
   <input type="submit" value="검색"> {% endcomment %}
   
 </form> 
+
+<div style="padding-top: 5.3%; margin-right:5%;">
+  <a href="{% url 'create' %}"><button class="highlight left">새 글 쓰기</button></a>
+</div>
+
          
-<div class="column">
+<div class="column" >
   <span style="color:#7AC351;">&nbsp;&nbsp;강의명을 검색하세요!</span>
 		<div id="sb-search" class="sb-search">
           
@@ -53,7 +56,6 @@
 <br>
 <br>
 
-<a href="{% url 'list' %}">관심학교만 보기</a>
 
   {% comment %} <div class="row">
     <div class="container"> 
@@ -67,6 +69,16 @@
     </div>
   </div> {% endcomment %}
 </form>
+<br>
+<br>
+<a href="{% url 'list' %}">
+  <p style="color:#7AC351; font-size: 1.5em; position: absolute; margin-left: 45%;">
+  관심학교만 보기
+  </p>
+</a>
+<br>
+<br>
+<br>
 
 
 <div class="container-fluid" style="margin-left:auto;margin-right:auto; ">
