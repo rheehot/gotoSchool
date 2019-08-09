@@ -3,7 +3,8 @@
 /* - - - - - - - - - - BODY */
 body {
 	background: #EEE;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	
 	font-family: 'Do Hyeon', sans-serif;
 	font-size: 1em;
