@@ -1,4 +1,4 @@
-<h2>회원가입</h2>
+{% comment %} <h2>회원가입</h2>
 <br>
 <form method="POST" action="" enctype="multipart/form-data">
     {%csrf_token%}
@@ -52,5 +52,147 @@
         <br>
         <br>
     <input type = "submit" value="회원가입">
-</form>
+</form> {% endcomment %}
 
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Form</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  
+  
+      <link rel="stylesheet" href="/static/css/signup.css">
+
+  
+</head>
+
+<body>
+    <div class="container">
+    <div class="wrapper">
+      <ul class="steps">
+        <li class="is-active">Step 1</li>
+        <li>Step 2</li>
+        <li>Step 3</li>
+        <li>Step 4</li>
+        <li>Step 5</li>
+      </ul>
+      <form class="form-wrapper" method="POST" action="" enctype="multipart/form-data">
+    
+        <fieldset class="section is-active">
+          <h3>회원 가입</h3>
+          
+         {% comment %} <input type="text" name="name" id="name" placeholder="Name"> {% endcomment %}
+         {{form.username}}
+         {{form.email}}
+          {% comment %} <input type="text" name="email" id="email" placeholder="Email">  {% endcomment %}
+          
+          <div class="button">Next</div>
+        </fieldset>
+         <fieldset class="section">
+          <h3>재학 중인 대학교를 선택하세요!</h3>
+           
+          <div class="row cf">
+           
+                {{form.school}}
+            
+            {% comment %} <div class="four col">
+              <input type="radio" name="r1" id="r1" checked>
+              <label for="r1">
+                <h4>건국대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="radio" name="r1" id="r2"><label for="r2">
+                <h4>서울대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="radio" name="r1" id="r3"><label for="r3">
+                <h4>성신여자대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="radio" name="r1" id="r4"><label for="r4">
+                <h4>숙명여자대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="radio" name="r1" id="r5"><label for="r5">
+                <h4>한국산업기술대학교</h4>
+              </label>
+            </div> {% endcomment %}
+          </div>
+          <div class="button">Next</div>
+        </fieldset>
+        <fieldset class="section">
+          <h3>관심학교를 선택하세요!</h3>
+          
+         <div class="row cf">
+            {{form.interest}}
+            {% comment %} <div class="four col">
+              <input type="checkbox" name="r1" id="r1" checked>
+              <label for="r1">
+                <h4>건국대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="checkbox" name="r1" id="r2"><label for="r2">
+                <h4>서울대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="checkbox" name="r1" id="r3"><label for="r3">
+                <h4>성신여자대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="checkbox" name="r1" id="r3"><label for="r4">
+                <h4>숙명여자대학교</h4>
+              </label>
+            </div>
+            <div class="four col">
+              <input type="checkbox" name="r1" id="r3"><label for="r5">
+                <h4>한국산업기술대학교</h4>
+              </label>
+            </div> {% endcomment %}
+          </div>
+          <div class="button">Next</div>
+        </fieldset>
+        <fieldset class="section">
+          <h3>학교 정보를 입력해주세요</h3>
+          {{form.schoolId}}
+          {{form.major}}
+          {{form.imgOfIdcard}}
+          {% comment %} <input type="text" name="schoolId" id="schoolId" placeholder="학번"> {% endcomment %}
+         {% comment %} <input type="text" name="schoolMajor" id="schoolMajor" placeholder="전공">
+          <input type="file" name="imgOfcard" id="imgOfcard"> {% endcomment %}
+          <div class="button">Next</div>
+        </fieldset>
+        <fieldset class="section">
+          <h3>비밀번호를 입력하세요</h3>
+          {{form.password}}
+          {% comment %} {{form.passwordCheck}} {% endcomment %}
+          {% comment %} <input type="password" name="password" id="password" placeholder="Password"> {% endcomment %}
+          <input type="password" name="password2" id="password2" placeholder="Re-enter Password"> 
+          <input class="submit" type="submit" value="회원가입">
+        </fieldset>
+
+          
+          
+        
+{% comment %}           
+        <fieldset class="section">
+          <h3>Account Created!</h3>
+          <p>Your account has now been created.</p>
+          <a href="/"><div class="button">ddd</div></a>
+        </fieldset> {% endcomment %}
+      </form>
+    </div>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="/static/js/signup.js"></script>
+
+</body>
+</html>

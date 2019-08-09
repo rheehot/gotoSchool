@@ -1,104 +1,78 @@
-edit
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>강의 리뷰 수정</title>
+  <link rel="stylesheet" href="/static/css/write.css?ver=1">
+</head>
 <br>
-<form method='POST'>
-    {% csrf_token %}
-    <input type="hidden">
-    <table>
 
-    <tr>
-    <th><label for="id_univ">대학교:</label></th>
-    <td><select name="univ" id="id_univ">
-        <option value="숙명여자대학교" selected>숙명여자대학교</option>
-        <option value="성신여자대학교">성신여자대학교</option>
-        <option value="서울대학교">서울대학교</option>
-        <option value="한국산업기술대학교">한국산업기술대학교</option>
-        <option value="건국대학교">건국대학교</option>
-        {% comment %} {% for univ in form.univ %}
-            <option value="">{{univ}}</option>
-        {% endfor %} {% endcomment %}
-    </select></td>
-    </tr>
+<div class="container">
+    <form id="add_form" class="fiform" novalidate autocomplete="off" method='POST'>
+        {% csrf_token %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+       
+            <div class="form-item">
+            
+                {{form.as_p}}
+         
+            </div>
+        {% comment %} <div class="form-item">
+            
+            <div class="select">
+                {{field.univ}}
+            </div>
+        </div>
+        <div class="form-item">
+                {{field.coursename}}
+        </div>
+        <div class="form-item">
+                {{field.prof}}
+        </div>
+        <div class="form-item">
+            <div class="select">
+                {{field.courseyear}}
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="select">
+                {{field.coursesemester}}
+            </div> 
+        </div>
+        <div class="form-item">
+             <textarea id="textarea" class="field" name="textarea">
+                {{field.content}}
+             </textarea>   
+        </div>
+        <div class="form-item">
+            <div class="select">
+                {{field.assignment}}
+            </div> 
+        </div>
+        <div class="form-item">
+            <div class="select">
+                {{field.test}}
+            </div> 
+        </div>
+        <div class="form-item">
+             <div class="select">
+                {{field.attendance}}
+            </div> 
+        </div>
+        <div class="form-item">
+            <div class="radio">
+                {{field.star}}
+            </div>
+        </div> {% endcomment %}
+        
 
-    <tr>
-    <th><label for="id_coursename">강의명:</label></th>
-    <td><input type="text" name="coursename" value="강의명" maxlength="30" required id="id_coursename"></td>
-    </tr>
+        <div class="form-item">
+            <button type="submit" class="btn" value="수정" style="margin-left: 40%; margin-right: 50%;">Submit</button>
+        </div>
 
-    <tr>
-    <th><label for="id_prof">교수:</label></th>
-    <td><input type="text" name="prof" value="교수" maxlength="30" required id="id_prof"></td>
-    </tr>
+    </form> 
+</div>
+{% comment %} <script  src="/static/js/script.js"></script> {% endcomment %}
 
-    <tr>
-    <th><label for="id_courseyear">수강년도:</label></th>
-    <td><select name="courseyear" id="id_courseyear">
-        <option value="2018">2018</option>
-        <option value="2019" selected>2019</option>
-    </select></td>
-    </tr>
-
-    <tr>
-    <th><label for="id_coursesemester">수강학기:</label></th>
-    <td><select name="coursesemester" id="id_coursesemester">
-        <option value="1학기" selected>1학기</option>
-        <option value="여름학기">여름학기</option>
-        <option value="2학기">2학기</option>
-        <option value="겨울학기">겨울학기</option>
-    </select></td>
-    </tr>
-
-    <tr>
-    <th><label for="id_content">강의평:</label></th>
-    <td><textarea name="content" cols="40" rows="10" required id="id_content">강의평을 작성하세요.</textarea></td>
-    </tr>
-
-    <tr>
-    <th><label for="id_assignment">과제:</label></th>
-    <td><select name="assignment" id="id_assignment">
-        <option value="없음" selected>없음</option>
-        <option value="적음">적음</option>
-        <option value="보통">보통</option>
-        <option value="헬">헬</option>
-    </select></td>
-    </tr>
-
-    <tr>
-    <th><label for="id_test">시험:</label></th>
-    <td><select name="test" id="id_test">
-        <option value="없음" selected>없음</option>
-        <option value="1회">1회</option>
-        <option value="2회">2회</option>
-        <option value="헬">헬</option>
-    </select></td>
-    </tr>
-
-    <tr>
-    <th><label for="id_attendence">출결:</label></th>
-    <td><select name="attendence" id="id_attendence">
-        <option value="안봄" selected>안봄</option>
-        <option value="보는듯마는듯">보는듯마는듯</option>
-        <option value="깐깐">깐깐</option>
-    </select></td>
-    </tr>
-
-    <tr>
-    <th><label for="id_star_0">별점:</label></th>
-    <td><ul id="id_star">
-    <li><label for="id_star_0"><input type="radio" name="star" value="1" required id="id_star_0">1</label></li>
-    <li><label for="id_star_1"><input type="radio" name="star" value="2" required id="id_star_1">2</label></li>
-    <li><label for="id_star_2"><input type="radio" name="star" value="3" required id="id_star_2">3</label></li>
-    <li><label for="id_star_3"><input type="radio" name="star" value="4" required id="id_star_3">4</label></li>
-    <li><label for="id_star_4"><input type="radio" name="star" value="5" required id="id_star_4" checked>5</label></li>
-    </ul></td>
-    </tr>
-
-    </table>
-    <br>
-    <input type="submit" value="수정">
-</form>
-{% comment %} <form method='POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <br>
-    <input type="submit" value="수정">
-</form> {% endcomment %}
+</body>
+</html>

@@ -6,7 +6,7 @@ from multiselectfield import MultiSelectFormField
 
 class CreateUserForm(forms.ModelForm):
 
-    passwordCheck = forms.CharField(max_length=100, widget=forms.PasswordInput())
+    passwordCheck = forms.CharField(max_length=100)
     # interest = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices)
     # interest = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=, label="관심학교")
     #interest = MultiSelectFormField(choices=Member.INTEREST_SCHOOL, label="관심학교")
@@ -34,39 +34,67 @@ class CreateUserForm(forms.ModelForm):
             'interest']
 
         widgets = {
+            'email': forms.EmailInput(
+                attrs={
+                  #  'class': 'form-control',
+                    'placeholder': 'Email',
+                    'name': 'email',
+                    'id': 'email',
+                    'type': 'text',
+                }),
             'username': forms.TextInput(
                 attrs={
                   #  'class': 'form-control',
-                    'placeholder': '15자 이내로 입력 가능합니다.',
-                    'name': 'username',
+                    'placeholder': 'Name',
+                    'name': 'name',
+                    'id': 'name',
+                    'type': 'text',
                 }),
             'password': forms.PasswordInput(
                 attrs={
                     'class': 'password',
                     'name': 'password',
+                    'placeholder': 'Password',
                 }),
+            'passwordCheck': forms.PasswordInput(
+                attrs={
+                    'class': 'password2',
+                    'id': 'password2',
+                    'placeholder': 'Password',
+                }),
+
+
             'school': forms.Select(
                 attrs={
-                    'class': 'form-schoolchoice',
-                    'name': 'school',
+                    'type': 'radio',
+                    #  'name': 'r1',
+                    #  'id': 'r1',
                 }),
             'major': forms.TextInput(
                 attrs={
-                    'name': 'major',
+                    'name': 'schoolMajor',
+                    'type': 'text',
+                    'id': 'schoolMajor',
+                    'placeholder': '전공',
                 }),
+        
             'schoolId': forms.TextInput(
                 attrs={
-                    'name': 'major',
+                    'type': 'text',
+                    'name': 'schoolId',
+                    'id': 'schoolId',
+                    'placeholder': "학번",
                 }),
             'imgOfIdcard': forms.FileInput(
                 attrs={
                     'type': 'file',
-                    'name': 'imgOfIdcard',
+                    'name': 'imgOfcard',
+                    'id': 'imgOfcard',
                     'accept': '.jpg, .png'
                 }),
             'interest': forms.CheckboxSelectMultiple(
                 attrs={
-                    'class': 'form-controls',
+                    'type': 'checkbox',
                 }),
             
         }

@@ -11,9 +11,9 @@ $(document).ready(function(){
       e.preventDefault();
     });
 
-//    if(currentSectionIndex === 5){
-//      $(document).find(".form-wrapper .section").first().addClass("is-active");
-//      $(document).find(".steps li").first().addClass("is-active");
-//    }
+    if(currentSectionIndex === 5){
+      $(document).find(".form-wrapper .section").first().addClass("is-active");
+      $(document).find(".steps li").first().addClass("is-active");
+    }
   });
 });

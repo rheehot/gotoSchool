@@ -14,21 +14,29 @@ class SchoolReviewForm(forms.ModelForm):
         }
 
         widgets = {
-            #'school': forms.TextInput(
-            #    attrs={
-            #        'class': 'form-control',
-            #        'value': '학교명',
-            #    }
+            'school': forms.Select(
+            attrs={
+                'class': 'field',
+                'id': 'select',
+                'name': 'select',
+            }),
+            'schoolyear': forms.Select(
+            attrs={
+                'class': 'field',
+                'id': 'select',
+                'name': 'select',
+            }),
+            'schoolsemester': forms.Select(
+            attrs={
+                'class': 'field',
+                'id': 'select',
+                'name': 'select',
+            }),     
             'content': forms.Textarea(
-                attrs={
-                    'class': 'form-control',
-                    'rows': '5',
-                }
-            ),
-            #'date': forms.DateInput(
-            #    attrs={
-            #        'class':'form-control',
-            #        'type':'date',
-            #    }
-            #)
+            attrs={
+                'class': 'field',
+                'id': 'textarea',
+                'name': 'textarea',
+            }),
+
         }
