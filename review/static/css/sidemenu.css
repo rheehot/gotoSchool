@@ -1,7 +1,8 @@
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     transition: background-color .5s;
+    padding-top: 3%;
 }
 
 .sidenav {
