@@ -17,21 +17,25 @@
 			<div class="h_50">
 				
 				<div class="contact">
+
 					{% comment %} <img src="https://cdn.shopify.com/s/files/1/0062/2883/6450/files/home-hero_900x.gif?v=1555746481" class="contact_image"> {% endcomment %}
                     <img src="/static/images/message.gif" class="contact_image">
+
 					<form method="POST">
                     {% csrf_token %}
-                        {% for field in form %}
+                    {{form.as_p}}
+                    
+                        {% comment %} {% for field in form %}
                         {% if field == form.recipient %}
 						    <input class="form-control" type="text" name="recipient">
-                        {% comment %} {{form.recipient}} {% endcomment %}
-                         {% endif %}
+                        {% comment %} {{form.recipient}}
+                         {% endif %} 
                         {% if field == form.content %}
 						<textarea name="content"></textarea>
                               {{ form.errors }}
                                 {{ form.non_field_errors }}
                         {% endif %}
-                        {% endfor %}
+                        {% endfor %} {% endcomment %}
 						<p id="submission"><button type="submit" class="btn btn_margin" value="send">Submit</button></p>
 
 					</form>
@@ -42,7 +46,7 @@
 		</section>
 <!-- partial -->
 
-<form method="POST">
+{% comment %} <form method="POST">
     {% csrf_token %}
     <table>
         {{ form.as_p }}
@@ -51,7 +55,7 @@
     </table>
     <br>
     <input type="submit" value="send">
-</form> 
+</form>  {% endcomment %}
   
 </body>
 </html>
