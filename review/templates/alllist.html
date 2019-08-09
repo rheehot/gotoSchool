@@ -128,7 +128,7 @@
             별점 : {{ review.star }}
             <br>    
             </small></h2>
-            <div class="cta-container transition"><a href="#" class="cta">자세히 보기</a></div>
+            <div class="cta-container transition"><a href="{% url 'show' review.id %}" class="cta">자세히 보기</a></div>
             <div class="card_circle transition"></div>
           </div>    
         </div> 
