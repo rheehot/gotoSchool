@@ -106,7 +106,7 @@ html {
     display: inline-block;
     text-align: center;
     position: relative;
-    margin: 25px 30px;
+    margin: 25px 25px;
   }
   
   /* .profile-card header a:after {
@@ -132,6 +132,7 @@ html {
   .profile-card header a > img {
     width: 120px;
     max-width: 100%;
+  
     -webkit-border-radius: 50%;
     border-radius: 50%;
     -webkit-transition: -webkit-box-shadow 0.3s ease;
@@ -149,8 +150,9 @@ html {
     width: 375px;
     height: 380px;
     display: inline-block;
-    float: right;
-    padding: 50px 20px 30px 20px;
+    
+    padding: 50px 50px 40px 60px;
+    padding-right: 10%;
     background: #FFFFFF;
     color: #333333;
     margin-top: 50px;

@@ -1,18 +1,27 @@
-내가 쓴 학교 리뷰:
-{% for schoolreview in myschoolreview %}
-    <li>{{schoolreview.school}}</li>
-    <li><a href="{% url 'schshow' schoolreview.id %}"> {{schoolreview.content}}</a>
-    </li>
-    <br>
-{% endfor %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="/static/css/myposts.css">
+
+<div class="wrapper">
+  <h2>내가 쓴 학교 리뷰</h2>
+  <ol>
+    {% for schoolreview in myschoolreview %}
+        <li><a href="{% url 'schshow' schoolreview.id %}"> {{schoolreview.content}}</a>
+        </li>
+        <br>
+    {% endfor %}
+  </ol>
+</div>
 
 <br>
 <br>
 
-내가 쓴 수업 리뷰:
-{% for review in myreview %}
-    <li>{{review.univ}}</li>
-    <li>{{review.coursename}}</li>
-    <li><a href="{% url 'show' review.id %}">{{review.content}}</a></li>
-    <br>
-{% endfor %}
+<div class="wrapper">
+  <h2>내가 쓴 수업 리뷰</h2>
+  <ol>
+    {% for review in myreview %}
+ 
+        <li><a href="{% url 'show' review.id %}">{{review.content}}</a></li>
+        <br>
+    {% endfor %}
+  </ol>
+</div>
