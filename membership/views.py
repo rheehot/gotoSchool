@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password
 from django.template import RequestContext
-import sweetify
 
 
 # Create your views here.
