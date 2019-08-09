@@ -26,18 +26,19 @@ def list(request):
     search2 = request.GET.get('search_coursename', None)
     if search2 :
         reviews = reviews.filter(coursename__icontains=search2)
-        return render(request, 'list.html', {'reviews' : reviews})
+        return render(request, 'list.html', {'reviews' : reviews, 'user':user})
     else :
-        return render(request, 'list.html', {'reviews': reviews})
+        return render(request, 'list.html', {'reviews': reviews, 'user':user})
 
 def alllist(request):
     reviews = Review.objects.all()
+    user = request.user
     search2 = request.GET.get('search_coursename', None)
     if search2 :
         reviews = reviews.filter(coursename__icontains=search2)
-        return render(request, 'alllist.html', {'reviews' : reviews})
+        return render(request, 'alllist.html', {'reviews' : reviews, 'user':user})
     else :
-        return render(request, 'alllist.html', {'reviews': reviews})
+        return render(request, 'alllist.html', {'reviews': reviews, 'user':user})
 
 def show(request, review_id):
     user = request.user

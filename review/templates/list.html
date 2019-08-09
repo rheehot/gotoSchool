@@ -22,11 +22,10 @@
   <a href="/recommend">강의 추천</a>		
   <a href="/recommend/schoolfive">학교 추천</a>	
   <a href="/home/info">학점교류 정보</a>
-  <a href="/membership/mypage">My page</a>		
+  <a href="/membership/mypage">My page</a>	
 </div>
 
- <span style="font-size:30px; cursor:pointer; padding-left:3.5%; color:#7AC351;" onclick="openNav()">☰</span>
-
+<span style="font-size:30px; cursor:pointer; padding-left:3.5%; color:#7AC351;" onclick="openNav()">☰</span>
 
 {{interest}}
 <form action="" method="GET">
@@ -97,7 +96,7 @@
 
 <div class="container-fluid" style="margin-left:auto;margin-right:auto; ">
 
-    <div class="row">
+    <div class="row container-fluid">
       {% for review in reviews.all %}
       
         <div class="col-md-3 mb-5">

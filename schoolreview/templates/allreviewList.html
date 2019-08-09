@@ -36,9 +36,15 @@
 </div>
 
 <br>
+{% if user.is_authenticated %}
 <p style="text-align:right; font-size:1.4rem; margin-right: 2px; cursor: pointer;">
   <a href="{% url 'reviewList' %}">관심 학교 리뷰 보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 </p>
+{% else %}
+<p style="text-align:right; font-size:1.4rem; margin-right: 2px; cursor: pointer;">
+  <a href="../membership/login">로그인하러가기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</p>
+{% endif %}
 <div class="comment-container theme--light">
   <div class="comments">
     {% for s_review in s_reviews.all %}
