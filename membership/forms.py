@@ -36,23 +36,39 @@ class CreateUserForm(forms.ModelForm):
         widgets = {
             'username': forms.TextInput(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': '15자 이내로 입력 가능합니다.'
+                  #  'class': 'form-control',
+                    'placeholder': '15자 이내로 입력 가능합니다.',
+                    'name': 'username',
                 }),
             'password': forms.PasswordInput(
                 attrs={
-                    'class': 'form-control',
-                }),
-            'passwordCheck': forms.PasswordInput(
-                attrs={
-                    'placeholder': '비밀번호를 다시 한 번 입력해주세요.'
+                    'class': 'password',
+                    'name': 'password',
                 }),
             'school': forms.Select(
                 attrs={
                     'class': 'form-schoolchoice',
-                }
-            ),
-            'interest': forms.CheckboxSelectMultiple,
+                    'name': 'school',
+                }),
+            'major': forms.TextInput(
+                attrs={
+                    'name': 'major',
+                }),
+            'schoolId': forms.TextInput(
+                attrs={
+                    'name': 'major',
+                }),
+            'imgOfIdcard': forms.FileInput(
+                attrs={
+                    'type': 'file',
+                    'name': 'imgOfIdcard',
+                    'accept': '.jpg, .png'
+                }),
+            'interest': forms.CheckboxSelectMultiple(
+                attrs={
+                    'class': 'form-controls',
+                }),
+            
         }
 
         # queryset = {

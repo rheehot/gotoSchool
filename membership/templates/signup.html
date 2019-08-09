@@ -44,8 +44,8 @@
 
         {% elif field == form.interest %}
             {{field.label}} : <br>
-             {% for choice in form.interest %}
-                <input type="hidden" class="form-controls">{{choice}}</input> <br>
+            {% for choice in form.interest %}
+                <input type="hidden" class="form-controls">{{choice}}<br>
             {% endfor %}
         {% endif %}
     {% endfor %}
