@@ -4,6 +4,7 @@ html,
 body {
   background-color:  #fafafae9;
   font-family: 'Do Hyeon', sans-serif;
+  padding-top: 5%;
 }
 
 .transition {
@@ -14,7 +15,7 @@ body {
   background-color: #fff;
   height: 400px;
   width: 300px;
-  position: absolute;
+  position: relative;
   margin: auto;
   top: 0;
   bottom: 0;
@@ -52,7 +53,7 @@ h2 {
   text-align: center;
   margin-top: 190px;
   position: absolute;
-  z-index: 9999;
+  /* z-index: 9999; */
   font-size: 26px;
   color: #7AC351;
   width: 100%;
@@ -78,7 +79,7 @@ h2 small {
   text-align: center;
   margin-top: 290px;
   position: absolute;
-  z-index: 9999;
+  /* z-index: 9999; */
   width: 100%;
   font-family: 'Noto Sans', serif;
 }

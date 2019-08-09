@@ -22,7 +22,7 @@ a {
   display: inline-flex;
   height: 36px;
   flex: 0 0 auto;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 700;
   justify-content: center;
   margin: 6px 8px;
@@ -173,6 +173,7 @@ button {
   background-color: transparent;
   border-style: none;
   color: inherit;
+  float: right;
 }
 
 [type="button"]::-moz-focus-inner,
@@ -204,12 +205,12 @@ img {
 .headline {
   font-weight: 400;
   letter-spacing: normal !important;
-  font-size: 24px !important;
+  font-size: 18px !important;
   line-height: 32px !important;
 }
 
 .title {
-  font-size: 40px !important;
+  font-size: 30px !important;
   font-weight: normal;
   line-height: 1 !important;
   letter-spacing: 0.02em !important;
@@ -217,7 +218,7 @@ img {
 
 .caption {
   font-weight: normal;
-  font-size: 30px !important;
+  font-size: 20px !important;
 }
 
 .theme--light.v-btn {
@@ -266,7 +267,7 @@ a:hover {
 }
 
 .comment p {
-  font-size: 27px;
+  font-size: 23px;
   margin-bottom: 7px;
 }
 

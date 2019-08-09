@@ -1,8 +1,3 @@
-<a href="{% url 'schcreate' %}">새 글 쓰기</a>
-<br>
-<a href="{% url 'allreviewList' %}">전체보기</a>
-
-
 <!DOCTYPE html>
 <html lang="en" >
 {% load staticfiles %}
@@ -11,12 +6,24 @@
     <title>학교 리뷰</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/school_review.css?ver=1" />
+    <link rel="stylesheet" href="/static/css/sidemenu.css?ver=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/school_review.css?ver=4" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Yeon+Sung&display=swap" rel="stylesheet">
 </head>
 
 <body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="/">Home</a>
+  <a href="/review/list">강의 리뷰</a>
+  <a href="/schoolreview/reviewList">학교 리뷰</a>	
+  <a href="/recommend">강의 추천</a>		
+  <a href="/recommend/schoolfive">학교 추천</a>	
+  <a href="/home/info">학점교류 정보</a>
+  <a href="/membership/mypage">My page</a>		
+</div>
 
+ <span style="font-size:30px; cursor:pointer; padding-left:3.5%; color:#7AC351;" onclick="openNav()">☰</span>
 {% comment %} 
 {% for s_review in s_reviews.all %}
     <h3><a href="{% url 'schshow' s_review.id %}">제목 : {{ s_review.school }}</a></h3> 
@@ -24,12 +31,19 @@
     <br/>
 {% endfor %} {% endcomment %}
   
+<div style="padding-top: 5.3%; margin-right:5%; font-weight:normal;">
+  <a href="{% url 'schcreate' %}"><button class="highlight left">새 글 쓰기</button></a>
+</div>
 
+<br>
+<p style="text-align:right; font-size:1.4rem; margin-right: 2px; cursor: pointer;">
+  <a href="{% url 'allreviewList' %}">전체 학교 리뷰 보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+</p>
 <div class="comment-container theme--light">
-  <div class="comments" >
+  <div class="comments">
     {% for s_review in s_reviews.all %}
     <div>
-      <div  class="card v-card v-sheet theme--light elevation-2">
+      <div  class="card v-card v-sheet theme--light elevation-2" onclick="location.href='{% url 'schshow' s_review.id %}'">
         <div  class="header">
         
         {% if s_review.school == "숙명여자대학교" %}
@@ -59,7 +73,8 @@
   </div>
 </div>
 
-
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+   <script src="/static/js/sidemenu.js"></script>
   
   
 

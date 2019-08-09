@@ -6,7 +6,6 @@
 <p>{{value|default:"nothing"}}</p> {% endcomment %}
 
 
-<a href="{% url 'schcreate' %}">새 글 쓰기</a>
 
 <!DOCTYPE html>
 <html lang="en" >
@@ -16,7 +15,7 @@
     <title>학교 리뷰</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/school_show.css?ver=1" />
+    <link rel="stylesheet" type="text/css" href="/static/css/school_show.css?ver=2" />
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Yeon+Sung&display=swap" rel="stylesheet">
 </head>
 
@@ -63,12 +62,13 @@
   
 
 </body>
-
+<div style="text-align:center; font-size: 1.5em;">
 <a href="{% url 'reviewList' %}">뒤로 가기</a>
 {% if user == s_review.writer %}
   <a href="{% url 'schupdate' s_review.id %}">수정하기</a>
   <a href="{% url 'schdelete' s_review.id %}" onclick="return confirm('정말 삭제하시겠습니까?')">삭제하기</a>
 {% endif %}
+</div>
 </html>
 
 
