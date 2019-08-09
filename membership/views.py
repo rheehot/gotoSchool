@@ -151,4 +151,3 @@ def changePassword(request):
     else:
         form = ChangePasswordForm()
         return render(request, 'changePassword.html', {'form': form})
-    
