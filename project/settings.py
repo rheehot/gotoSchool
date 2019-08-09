@@ -127,7 +127,7 @@ USE_TZ = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = "./hackerthon/project/static"
+STATIC_ROOT = "./static"
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'membership.Member'

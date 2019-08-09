@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic|Noto+Serif+KR|Yeon+Sung&display=swap');
+
+html,
+body {
+  height: 100%; 
+}
+.background {
+  background: #fff;
+  /* height: 100%;
+  position: relative; */
+}
+.background h1 {
+  width: 100%;
+  text-align: center;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 38px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: white;
+  position: absolute;
+   top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%; 
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* .nh_logo-container {
+  width: 300px;
+  position: absolute;
+  top: 30px;
+  right: auto;
+  bottom: auto;
+left: 50%;
+-webkit-transform: translateX(-50%);
+transform: translateX(-50%);
+  cursor: pointer;
+} */
+/* .nh_header-wrp-icons {
+  top: 60px;
+  left: 30px;
+  position: absolute;
+  font-size: 2em;
+  cursor: pointer;
+} */
+
+.nh_nav-trigger {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 60px;
+  right: auto;
+  bottom: auto;
+  right: 30px;
+  z-index: 3;
+  cursor: pointer;
+  transition: top .1s ease-in-out;
+}
+ .background .nh_nav-trigger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #F1F1F1;
+  margin: 0 0 5px 0;
+  transition: all .2s ease-in-out;
+  position: absolute;
+} 
+.background .nh_nav-trigger span:first-child {
+  top: 0;
+  left: 0;
+}
+.background .nh_nav-trigger span:nth-child(2) {
+  top: 10px;
+  left: 0;
+}
+.background .nh_nav-trigger span:last-child {
+  top: 20px;
+  left: 0;
+}
+.background .nh_nav-trigger.on {
+  top: 40px;
+}
+.background .nh_nav-trigger.on span:first-child {
+  transform: rotate(45deg);
+}
+.background .nh_nav-trigger.on span:nth-child(2) {
+  transform: rotate(-45deg);
+  top: 0;
+}
+.background .nh_nav-trigger.on span:last-child {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu {
+  background: rgba(39, 77, 35, 0.85);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 2;
+}
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  left: 0;
+  width: 250px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.menu ul li {
+    font-family: 'Do Hyeon', sans-serif;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 44px;
+  padding: 10px 0;
+}
+

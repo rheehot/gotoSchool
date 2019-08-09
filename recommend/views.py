@@ -67,7 +67,7 @@ def schoolfive(request):
         result = value[search1]
         result = Counter({k:result[k]*count[k] for k in count})
         schools = result.most_common()
-        print(schools)
+     
 
         schoolList = dict(schools)
         key = list(schoolList.keys())

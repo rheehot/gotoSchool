@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic|Noto+Serif+KR|Yeon+Sung&display=swap');
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.wrapper {
+  margin: 2em auto;
+  width: 90%;
+  max-width: 1000px;
+}
+h2 {
+    font-family: 'Do Hyeon', sans-serif;
+}
+ol {
+  counter-reset:li;
+  margin: 0;
+  padding: 0;
+}
+ol > li {
+    font-family: 'Do Hyeon', sans-serif;
+  font-size: 1.3em;
+  list-style: none;
+  margin: 0 0 .5em 1.95em;
+  padding: .5em 1em;
+  position: relative;
+}
+ol > li:before {
+  background: #8da97d;
+  color: white;
+  content: counter(li);
+  counter-increment:li;
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 1.2em;
+  line-height:1em;
+  padding: .5em 0;
+  position: absolute;
+    top: .4em;
+    left: -1.6em;
+  text-align: center;
+  width: 2em;
+}
