@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
 
 html,
 body {
@@ -20,7 +20,9 @@ body {
   left: 0;
   right: 0;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
 }
 
 .card:hover {
@@ -57,7 +59,7 @@ h2 {
   font-size: 26px;
   color: #2196F3;
   width: 100%;
-  font-family: 'Noto Sans', serif;
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 h2 small {
@@ -90,7 +92,7 @@ h2 small {
   position: absolute;
   z-index: 9999;
   width: 100%;
-  font-family: 'Noto Sans', serif;
+  font-family: 'Do Hyeon', sans-serif;
 }
 
 .cta {
