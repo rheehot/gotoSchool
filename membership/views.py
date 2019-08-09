@@ -40,20 +40,22 @@ def signup(request):
                 form.save_m2m()
 
                 login(request, newUser)
-                messages.info(request, '회원이 되어주셔서 감사합니다. WelCome ~ :)')
+
                 return redirect('mypage')
             else:
-                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'})
+                form = CreateUserForm()
+                return render_to_response('signup.html', {'form': form, 'message': '비밀번호를 다시 확인해주십시오.'})
         
         else:
-            messages.error(request, '이미 존재하는 아이디이거나 회원가입에 실패했습니다. 다시 입력해주세요 :)')
-            return redirect('signup')
+            form = CreateUserForm()
+            return render_to_response('signup.html', {'message': '이미 존재하는 아이디이거나 회원가입에 실패했습니다. 다시 입력해주세요 :)', 'form': form})
     
     else:
         form = CreateUserForm()
         return render(request, 'signup.html', {'form': form})
 
 
+@csrf_exempt
 def signin(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -66,6 +68,7 @@ def signin(request):
             return redirect('home')
         
         else: 
+            form = LoginForm()
             return render_to_response('login.html', {'message': '로그인에 실패했습니다. 다시 시도해주세요 :(', 'form': form})
     
     else:
@@ -95,8 +98,8 @@ def deleteAccount(request):
                     return redirect('signin')
 
         except Exception as e:
-            messages.error(request, '아이디를 잘못 입력하셨습니다. 회원 탈퇴에 실패했습니다.')
-            return redirect('deleteAccount')
+            form = DeleteAccountForm()
+            return render_to_response('deleteAccount.html', {'message': '아이디가 일치하지 않습니다. 회원 탈퇴에 실패했습니다. ', 'form': form})
     else:
         form = DeleteAccountForm()
         return render(request, 'deleteAccount.html', {'form': form})
@@ -120,7 +123,7 @@ def myposts(request):
 
     return render(request, 'myposts.html', {'myschoolreview': myschoolreview, 'myreview': myreview})
 
-
+@csrf_exempt
 def changePassword(request):
 
     if request.method == 'POST':
@@ -139,12 +142,12 @@ def changePassword(request):
                     auth.login(request, user)
                     return redirect('mypage')
                 else:
-                    messages.error(request, '새로운 비밀번호가 서로 일치하지 않습니다. ')
-                    return redirect('changePassword')
+                    form = ChangePasswordForm()
+                    return render_to_response('changePassword.html', {'message': '새로운 비밀번호가 서로 일치하지 않습니다.', 'form': form})
             
             else:
-                messages.error(request, '현재 비밀번호가 일치하지 않습니다.')
-                return redirect('changePassword')
+                form = ChangePasswordForm()
+                return render_to_response('changePassword.html', {'message': '현재 비밀번호가 일치하지 않습니다. ', 'form': form})
 
     else:
         form = ChangePasswordForm()
