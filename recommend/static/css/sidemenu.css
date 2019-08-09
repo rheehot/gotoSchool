@@ -1,6 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic|Noto+Serif+KR|Yeon+Sung&display=swap');
 nav {
-    font-family: "Lato", sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     transition: background-color .5s;
 }
 
@@ -24,7 +24,9 @@ nav {
     font-size: 25px;
     color: rgba(255, 255, 255, 0.6);
     display: block;
-    transition: 0.3s
+    transition: 0.3s;
+    font-family: 'Do Hyeon', sans-serif;
+
 }
 
 .sidenav a:hover, .offcanvas a:focus{

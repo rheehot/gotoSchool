@@ -42,9 +42,9 @@
     position: relative;
   
     /* just for demo */
-    background: #444;
+    background: #7AC351;
     box-shadow: 0 0 20px rgba(125, 125, 125, .2);
-    overflow: hidden;
+    overflow: hidden; 
   }
   
   @keyframes slide-in {
@@ -72,7 +72,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%; height: 100%;
-    background: #fff;
+    background: #7AC351;
     transition: .4s var(--easing); 
   }
   
@@ -90,7 +90,7 @@
     margin: -2em 0 1em 0;
     min-width: 68%;
     text-align: center;
-    color: #7AC351;
+    color: #fff;
     font-size: 3rem;
     font-family: 'Do Hyeon', sans-serif;
     margin-top: 10px;
@@ -138,8 +138,8 @@
   }
   
   .main details:not([open]):hover summary {
-    background: #7AC351;
-    color: #000;
+    background: rgb(49, 138, 41);
+    color: #fff;
   }
   
   /* .main details[open] summary {
