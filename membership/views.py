@@ -23,17 +23,13 @@ def home(request):
 def signup(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST, request.FILES)
-        print(1111111)
         if form.is_valid():
-            print(222222)
             if form.cleaned_data['password'] == form.cleaned_data['passwordCheck']:
-                print(3333333)
                 username = form.cleaned_data.get("username")
                 password = form.cleaned_data.get("password")
                 
                 newUser = form.save(commit=False)
                 newUser = Member.objects.create_user(username=username, email=None, password=password)
-                print(44444)
                 newUser.school = form.cleaned_data.get("school")
                 newUser.major = form.cleaned_data.get("major")
                 newUser.schoolId = form.cleaned_data.get("schoolId")
