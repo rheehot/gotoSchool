@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .forms import CreateUserForm, LoginForm, DeleteAccountForm, ChangePasswordForm
 from .models import Member
 from review.models import Review
 from schoolreview.models import SchoolReview
 from django.contrib.auth import login, authenticate
 from django.contrib import auth
+from django.contrib.auth import logout 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
@@ -18,20 +19,21 @@ def home(request):
     return render(request,  '../index.html')
 
 
-@csrf_exempt
+
 def signup(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST, request.FILES)
-
+        print(1111111)
         if form.is_valid():
-            
+            print(222222)
             if form.cleaned_data['password'] == form.cleaned_data['passwordCheck']:
+                print(3333333)
                 username = form.cleaned_data.get("username")
                 password = form.cleaned_data.get("password")
                 
                 newUser = form.save(commit=False)
                 newUser = Member.objects.create_user(username=username, email=None, password=password)
-                
+                print(44444)
                 newUser.school = form.cleaned_data.get("school")
                 newUser.major = form.cleaned_data.get("major")
                 newUser.schoolId = form.cleaned_data.get("schoolId")
@@ -45,7 +47,7 @@ def signup(request):
                 messages.info(request, '회원이 되어주셔서 감사합니다. WelCome ~ :)')
                 return redirect('mypage')
             else:
-                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'}, context_instance=RequestContext(request))
+                return render(request, 'signup.html', {'form': form, 'error': '비밀번호를 다시 확인해주십시오.'})
         
         else:
             messages.error(request, '이미 존재하는 아이디이거나 회원가입에 실패했습니다. 다시 입력해주세요 :)')
@@ -78,7 +80,7 @@ def signin(request):
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('/')
+        return redirect('home')
     return render(request, 'signup.html')
 
 
