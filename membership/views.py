@@ -19,12 +19,15 @@ def home(request):
     return render(request,  '../index.html')
 
 
-
+@csrf_exempt
 def signup(request):
     if request.method == 'POST':
+        print(1111)
         form = CreateUserForm(request.POST, request.FILES)
         if form.is_valid():
+            print(2222)
             if form.cleaned_data['password'] == form.cleaned_data['passwordCheck']:
+                print(33)
                 username = form.cleaned_data.get("username")
                 password = form.cleaned_data.get("password")
                 

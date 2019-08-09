@@ -6,7 +6,11 @@ from multiselectfield import MultiSelectFormField
 
 class CreateUserForm(forms.ModelForm):
 
-    passwordCheck = forms.CharField(max_length=100)
+    passwordCheck = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={
+        'class': 'password2',
+        'id': 'password2',
+        'placeholder': 'Password',
+    }))
     # interest = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices)
     # interest = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=, label="관심학교")
     #interest = MultiSelectFormField(choices=Member.INTEREST_SCHOOL, label="관심학교")
