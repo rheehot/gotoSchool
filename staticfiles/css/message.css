@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  -webkit-text-size-adjust:none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*::selection {
+  background: rgba(0, 0, 0, .3);  
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background: #fafafa;
+  color: #333;
+  overflow-x: hidden;
+  margin-bottom: 1.5em;
+}
+
+#submission {
+    text-align: center;
+}
+
+.btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+/* Custom */
+.btn {
+  display: inline-block;
+  position: relative;
+  padding: 13px 40px;
+  top: 0;
+  
+  font-size: 16px;
+  font-family: 'Do Hyeon', sans-serif;
+  border-radius: 100px;
+  border-bottom: 1px solid rgba( 28, 227, 125, 0.5 );
+  background: #7AC351;
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+  
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+  
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.btn:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
+  
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+.btn:active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
+.btn_margin {
+  margin: 10px 0;
+  background: #7AC351;
+}
+.border_bt {
+  border-bottom: 1px solid rgba( 22, 230, 137, 1 );
+}
+p, span, a, div, input {
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 12px;
+}
+
+			section {
+				width: 1000px;
+			}
+h1, h2, h3, h4 {
+  font-family: 'Do Hyeon', sans-serif;
+  margin: 0.5em 0;
+  color: rgba(211, 47, 47, 0.8);
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bolder;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 25px;
+}
+p {
+  font-size: 20px;
+  margin: 0.5em 0;
+}
+@media only screen and (max-width: 760px) {
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 17px;
+  }
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  margin-left: 1em;
+  font-size: 15px;
+}
+img {
+	max-width: 100%;
+}
+			.row {
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+}
+
+.h_50 {
+  width: 67%;
+  height: auto;
+  margin: 3em 0;
+}
+
+
+
+.h_25 {
+  width: 23%;
+  margin: 20px 10px;
+}
+
+.description {
+  width: 75%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 950px) {
+
+  .h_50 {
+    transform: scale(1);
+   
+  }
+
+  .description {
+    width: 100%;
+    padding: 2em 0;
+  }
+    
+ 
+}
+
+@media only screen and (max-width: 680px) {
+  .h_50 {
+    transform: scale(0.7);
+    margin-right: 40em;
+   
+  }
+
+  
+  .description {
+    width: 100%;
+    padding: 2em 0;
+  }
+    
+}
+
+
+
+@media only screen and (max-width: 480px)  {
+  .h_50 {
+/*    width: 80%;*/
+    
+    transform: scale(0.5);
+    margin-right: 40em;
+  }
+
+  
+  .description {
+    width: 100%;
+    padding: 2em 0;
+    
+  }
+
+/*
+  .block {
+    display: block !important;
+  }
+  .none {
+    display: none;
+  }
+*/
+
+}
+
+
+.center {
+  text-align: center;
+}
+
+
+.contact {
+  vertical-align: top;
+  border-radius: 5px;
+  width: 80%;
+  overflow: hidden;
+  margin: auto;
+ height: 60em;
+  background: #fff;
+  box-shadow: 0 4px 24px -1px rgba(22, 42, 90, 0.16);
+}
+.contact_image {
+  display: false;
+  position: relative;
+  margin: false;
+  top: -5em;
+  left: -7em;
+  right: false;
+  bottom: false;
+}
+form {
+  position: relative;
+  top: -15em;
+  left: false;
+  right: false;
+  bottom: false;
+  padding: 2em;
+}
+
+form input {
+  width: 100%;
+  padding: 15px 24px;
+  margin: 5px 0;
+  outline: none;
+  border-radius: 100px;
+  border: 1px solid #C0C0C0;
+  font-size: 16px;
+}
+form textarea {
+  width: 100%;
+  vertical-align: top;
+  padding: 15px 24px;
+  margin: 5px 0;
+  outline: none;
+  font-family: 'Do Hyeon', sans-serif;
+  border-radius: 5px;
+  color: grey;
+  border: 1px solid #C0C0C0;
+  font-size: 16px;
+  height: 20em;
+}
+form input, form textarea {
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+form input:focus, form textarea:focus {
+  box-shadow: 0 4px 24px -1px rgba(22, 42, 90, 0.16);
+  border-color: #fff;
+}
+@media only screen and (max-width: 680px) {
+  .contact {
+    width: 100%;
+  }
+}

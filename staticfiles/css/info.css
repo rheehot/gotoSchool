@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Nanum+Gothic|Noto+Serif+KR|Yeon+Sung&display=swap');
+
+body {
+    font-family: 'Do Hyeon', sans-serif;
+   background-color: rgb(250, 250, 250);
+   padding-top: 50px;
+   line-height: 1.6;
+   width: auto;
+   font-size: 1.6em;
+}
+
+.tabs {
+	clear: both;
+	position: relative;   
+   max-width: 70%;
+   margin: 0 auto;
+   /* you can either manually set a min-height here or do it via JS ---> */
+}
+
+.tab {
+	float: left;
+}
+
+.tab label {
+	margin-right: 30px;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+    color: rgba(92, 92, 92, 0.7);
+    
+    font-size: 1.7rem !important;
+   
+}
+
+#subtitle {
+    font-size: 1.5rem;
+    color: rgb(84, 201, 34);
+    
+}
+
+.tab [type=radio] {
+	display: none;   
+}
+
+.tab__content {
+   position: relative;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: opacity .2s cubic-bezier(.42,0,.34,1.01);
+	opacity: 0;
+	font-size: 1.2em; 
+	color: rgba(67, 66, 66, 0.7);
+}
+
+[type=radio]:checked ~ label {
+	border-bottom: 2px solid #7AC351;
+	color: #7AC351;
+	z-index: 2;
+}
+
+[type=radio]:checked ~ label ~ .tab__content {
+	z-index: 1;
+	opacity: 1;
+}
