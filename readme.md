@@ -108,41 +108,33 @@ $ python manage.py runserver
 * Website Link: [https://schoolgaza.herokuapp.com](https://schoolgaza.herokuapp.com)
 
 ### Demo
-superuser ID(for test) : sian
-superuser PW : qwer1234
+* superuser ID(for test) : sian
+* superuser PW : qwer1234
 
 <div align="center">
 
-<b>Login</b>
+
 <img width="436" alt="스크린샷 2019-11-08 오전 3 35 40" src="https://user-images.githubusercontent.com/35549653/68417128-2647eb80-01d9-11ea-8aab-f4daf1fb37d6.png">
 
 
-<b>My Page</b>
 <img width="1264" alt="스크린샷 2019-11-08 오전 3 36 35" src="https://user-images.githubusercontent.com/35549653/68417135-2b0c9f80-01d9-11ea-8086-67b22bdb737c.png">
 
 
-<b>Class Review</b>
 <img width="1264" alt="스크린샷 2019-11-08 오전 3 33 33" src="https://user-images.githubusercontent.com/35549653/68417070-10d2c180-01d9-11ea-8cd7-e896cda68e73.png">
 
 
-<b>School Review</b>
 <img width="1264" alt="스크린샷 2019-11-08 오전 3 34 04" src="https://user-images.githubusercontent.com/35549653/68417075-13351b80-01d9-11ea-9fb7-223e1abfe864.png">
 
 
-
-<b>Top 5 Recommended Class</b>
 <img width="652" alt="스크린샷 2019-11-08 오전 3 35 01" src="https://user-images.githubusercontent.com/35549653/68417087-17f9cf80-01d9-11ea-8dec-d0d70c9eb6f5.png"> <img width="652" alt="스크린샷 2019-11-08 오전 3 35 06" src="https://user-images.githubusercontent.com/35549653/68417093-19c39300-01d9-11ea-8386-ed2b5c8fe116.png">
 
 
-<b>Recommended School</b>
 <img width="652" alt="스크린샷 2019-11-08 오전 3 34 51" src="https://user-images.githubusercontent.com/35549653/68417099-1c25ed00-01d9-11ea-9e3d-c08b88603a2c.png">
 
 
-<b>Information about Credit Exchange Program</b>
 <img width="1264" alt="스크린샷 2019-11-08 오전 3 35 27" src="https://user-images.githubusercontent.com/35549653/68417110-1fb97400-01d9-11ea-821a-59970d8c8a23.png">
 
 
-<b>Messaging</b>
 <img width="437" alt="스크린샷 2019-11-08 오전 3 43 07" src="https://user-images.githubusercontent.com/35549653/68417536-f0efcd80-01d9-11ea-90a4-05d29aaa0121.png">
 <img width="437" alt="스크린샷 2019-11-08 오전 3 43 17" src="https://user-images.githubusercontent.com/35549653/68417545-f4835480-01d9-11ea-8187-f40b4cfbfc87.png">
 
