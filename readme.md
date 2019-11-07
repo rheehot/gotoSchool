@@ -111,6 +111,8 @@ $ python manage.py runserver
 superuser ID(for test) : sian
 superuser PW : qwer1234
 
+<div align="center">
+
 * Login 
 <img width="436" alt="스크린샷 2019-11-08 오전 3 35 40" src="https://user-images.githubusercontent.com/35549653/68417128-2647eb80-01d9-11ea-8aab-f4daf1fb37d6.png">
 
@@ -136,6 +138,8 @@ superuser PW : qwer1234
 * Messaging
 <img width="640" alt="스크린샷 2019-11-08 오전 3 43 07" src="https://user-images.githubusercontent.com/35549653/68417536-f0efcd80-01d9-11ea-90a4-05d29aaa0121.png">
 <img width="437" alt="스크린샷 2019-11-08 오전 3 43 17" src="https://user-images.githubusercontent.com/35549653/68417545-f4835480-01d9-11ea-8187-f40b4cfbfc87.png">
+
+</div>
 
 <!-- CONTACT -->
 ## Contact
