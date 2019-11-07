@@ -13,7 +13,7 @@
     <br />
    </p>
 
-` `
+&nbsp;
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
@@ -26,7 +26,7 @@
 * [License](#license)
 * [Contact](#contact)
 
-` `
+&nbsp;
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -38,15 +38,15 @@
     <b>학점교류 정보 교환 커뮤니티 학교가자</b>
 </div>
 
-` `
 
+&nbsp;
 ### Built With
 
 * Python Django
 * HTML5 + CSS3 + Javascript
 * SQLite3
 
-` `
+&nbsp;
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -68,7 +68,7 @@ $ pip install django
 ```
 
 
-` `
+&nbsp;
 ### Requirements
 ```
 dj-database-url==0.5.0
@@ -82,7 +82,7 @@ sqlparse==0.3.0
 sweetify==2.0.0
 whitenoise==4.1.3
 ```
-` `
+&nbsp;
 ### Installation
 
 1. Clone the repo
@@ -97,16 +97,16 @@ $ python manage.py migrate
 ```
 $ python manage.py runserver
 ```
-
+&nbsp;
 ## About Project
 
 ### Deploy
 * Heroku
-` `
+&nbsp;
 ### Links
 * Project Link: [https://github.com/siyeons/gotoSchool](https://github.com/siyeons/gotoSchool)
 * Website Link: [https://schoolgaza.herokuapp.com](https://schoolgaza.herokuapp.com)
-` `
+&nbsp;
 ### Demo
 * superuser ID(for test) : sian
 * superuser PW : qwer1234
@@ -116,30 +116,24 @@ $ python manage.py runserver
 
 <img width="436" alt="스크린샷 2019-11-08 오전 3 35 40" src="https://user-images.githubusercontent.com/35549653/68417128-2647eb80-01d9-11ea-8aab-f4daf1fb37d6.png">
 
-` `
+
 <img width="1000" alt="스크린샷 2019-11-08 오전 3 36 35" src="https://user-images.githubusercontent.com/35549653/68417135-2b0c9f80-01d9-11ea-8086-67b22bdb737c.png">
-` `
+
 
 <img width="1000" alt="스크린샷 2019-11-08 오전 3 33 33" src="https://user-images.githubusercontent.com/35549653/68417070-10d2c180-01d9-11ea-8cd7-e896cda68e73.png">
 
-` `
 
 <img width="1000" alt="스크린샷 2019-11-08 오전 3 34 04" src="https://user-images.githubusercontent.com/35549653/68417075-13351b80-01d9-11ea-9fb7-223e1abfe864.png">
 
 
-` `
-
 <img width="400" alt="스크린샷 2019-11-08 오전 3 35 01" src="https://user-images.githubusercontent.com/35549653/68417087-17f9cf80-01d9-11ea-8dec-d0d70c9eb6f5.png"> <img width="400" alt="스크린샷 2019-11-08 오전 3 35 06" src="https://user-images.githubusercontent.com/35549653/68417093-19c39300-01d9-11ea-8386-ed2b5c8fe116.png">
 
-` `
 
 <img width="400" alt="스크린샷 2019-11-08 오전 3 34 51" src="https://user-images.githubusercontent.com/35549653/68417099-1c25ed00-01d9-11ea-9e3d-c08b88603a2c.png">
 
-` `
 
 <img width="1000" alt="스크린샷 2019-11-08 오전 3 35 27" src="https://user-images.githubusercontent.com/35549653/68417110-1fb97400-01d9-11ea-821a-59970d8c8a23.png">
 
-` `
 
 <img width="400"  alt="스크린샷 2019-11-08 오전 3 43 07" src="https://user-images.githubusercontent.com/35549653/68417536-f0efcd80-01d9-11ea-90a4-05d29aaa0121.png">
 <img width="400" alt="스크린샷 2019-11-08 오전 3 43 17" src="https://user-images.githubusercontent.com/35549653/68417545-f4835480-01d9-11ea-8187-f40b4cfbfc87.png">
