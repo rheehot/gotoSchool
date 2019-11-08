@@ -23,8 +23,11 @@
   * [Prerequisites](#prerequisites)
   * [Requirements](#requirements)
   * [Installation](#installation)
-* [License](#license)
-* [Contact](#contact)
+* [Details](#details) 
+  * [Deploy](#deploy)
+  * [Links](#links)
+  * [Demo](#demo)
+ * [Contanct](#contact)
 
 &nbsp;
 <!-- ABOUT THE PROJECT -->
@@ -98,7 +101,7 @@ $ python manage.py migrate
 $ python manage.py runserver
 ```
 &nbsp;
-## About Project
+## Details 
 
 ### Deploy
 * Heroku
@@ -139,7 +142,7 @@ $ python manage.py runserver
 <img width="400" alt="스크린샷 2019-11-08 오전 3 43 17" src="https://user-images.githubusercontent.com/35549653/68417545-f4835480-01d9-11ea-8187-f40b4cfbfc87.png">
 
 </div>
-
+&nbsp;
 <!-- CONTACT -->
 ## Contact
 
